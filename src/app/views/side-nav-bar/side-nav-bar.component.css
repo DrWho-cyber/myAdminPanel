@@ -1,0 +1,37 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.example-radio-group {
+    display: block;
+    border: 1px solid #555;
+    margin: 20px;
+    padding: 10px;
+}
+
+.mat-sidenav {
+    background-color: rgb(30, 30, 45);
+}
+
+.mat-list-item {
+    color: rgb(147, 147, 204); 
+    margin-top: 2rem;
+}
+
+.mat-list-item a {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.mat-list-item .mat-icon {
+    margin-right: 8px;
+}
+
+.active {
+    background-color: rgb(219, 20, 48);
+}
