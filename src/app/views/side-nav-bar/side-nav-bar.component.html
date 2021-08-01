@@ -1,4 +1,6 @@
+
 <mat-sidenav-container class="example-container">
+    
     <mat-sidenav opened #sidenav [mode]="mode.value">
         <mat-nav-list>
             <mat-list-item *ngFor="let link of links">  
@@ -10,8 +12,8 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <p><button mat-button (click)="sidenav.toggle()">
+        <button mat-button (click)="sidenav.toggle(); iconChange()">
                 <mat-icon>{{menuIcon}}</mat-icon>
-            </button></p>
+            </button>
     </mat-sidenav-content>
 </mat-sidenav-container>

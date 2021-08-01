@@ -1,0 +1,23 @@
+.mat-toolbar {
+    background-color: rgb(20, 20, 36);
+    color: white;
+    justify-content: space-between;
+    
+}
+
+.redSpan {
+    color: rgb(219, 20, 48);
+}
+
+.mat-nav-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mat-list-item {
+    color: rgb(147, 147, 204); 
+}
+
+.mat-list-item :hover {
+    color: white;
+}
