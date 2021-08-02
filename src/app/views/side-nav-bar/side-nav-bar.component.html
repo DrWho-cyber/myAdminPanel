@@ -1,4 +1,6 @@
+
 <mat-sidenav-container class="example-container">
+    
     <mat-sidenav opened #sidenav [mode]="mode.value">
         <mat-nav-list>
             <app-dashboard></app-dashboard>
@@ -9,9 +11,11 @@
         </mat-nav-list>
     </mat-sidenav>
 
-    <mat-sidenav-content class="menuicon">
-        <p><button mat-button (click)="sidenav.toggle()">
+
+    <mat-sidenav-content>
+        <button mat-button (click)="sidenav.toggle(); iconChange()">
+
                 <mat-icon>{{menuIcon}}</mat-icon>
-            </button></p>
+            </button>
     </mat-sidenav-content>
 </mat-sidenav-container>
