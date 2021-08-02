@@ -3,11 +3,9 @@
     
     <mat-sidenav opened #sidenav [mode]="mode.value">
         <mat-nav-list>
-            <app-dashboard></app-dashboard>
-            <app-hotels></app-hotels>
-            <app-rooms></app-rooms>
-            <app-sales></app-sales>
-            <app-users></app-users>
+            <mat-list-item *ngFor="let link of links">  
+            <a matLine [routerLink]="'/'+link.name"><mat-icon>{{link.icon}}</mat-icon>{{link.name}}</a>
+        </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>
 
@@ -17,5 +15,10 @@
 
                 <mat-icon>{{menuIcon}}</mat-icon>
             </button>
-    </mat-sidenav-content>
+        
+         <router-outlet></router-outlet>
+
+    </mat-sidenav-content>  
+    
+    
 </mat-sidenav-container>
