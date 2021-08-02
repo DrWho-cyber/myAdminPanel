@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
-import {MatNativeDateModule} from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
+import { MatNativeDateModule } from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-materials.module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router'
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +21,12 @@ import { AutorisationComponent } from './shared-components/autorisation/autorisa
 import { ReactiveFormComponent } from './shared-components/reactive-form/reactive-form.component';
 import { TemplateDrivenFormComponent } from './shared-components/template-driven-form/template-driven-form.component';
 import { RegistrationComponent } from './shared-components/registration/registration.component';
+import { MatIconModule } from '@angular/material/icon';
+import { DashboardComponent } from './views/side-nav-bar/dashboard/dashboard.component';
+import { HotelsComponent } from './views/side-nav-bar/hotels/hotels.component';
+import { RoomsComponent } from './views/side-nav-bar/rooms/rooms.component'
+import { SalesComponent } from './views/side-nav-bar/sales/sales.component'
+import { UsersComponent } from './views/side-nav-bar/users/users.component'
 
 
 @NgModule({
@@ -28,17 +39,26 @@ import { RegistrationComponent } from './shared-components/registration/registra
     RegistrationComponent,
     AutorisationComponent,
     ReactiveFormComponent,
-    TemplateDrivenFormComponent
+    TemplateDrivenFormComponent,
+    DashboardComponent,
+    HotelsComponent,
+    RoomsComponent,
+    SalesComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    AppMaterialModule, 
+    AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule,
+    RouterModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
