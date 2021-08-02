@@ -5,6 +5,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 const material: any = [
@@ -13,7 +14,8 @@ const material: any = [
   MatRadioModule,
   MatListModule,
   MatIconModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatFormFieldModule
 ];
 
 @NgModule({
