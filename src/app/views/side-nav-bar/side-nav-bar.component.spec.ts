@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HotelsComponent } from './hotels.component';
+import { SideNavBarComponent } from './side-nav-bar.component';
 
-describe('HotelsComponent', () => {
-  let component: HotelsComponent;
-  let fixture: ComponentFixture<HotelsComponent>;
+describe('SideNavBarComponent', () => {
+  let component: SideNavBarComponent;
+  let fixture: ComponentFixture<SideNavBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HotelsComponent ]
+      declarations: [ SideNavBarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HotelsComponent);
+    fixture = TestBed.createComponent(SideNavBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
