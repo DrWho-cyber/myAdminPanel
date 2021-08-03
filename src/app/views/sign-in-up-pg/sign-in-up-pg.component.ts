@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-sign-in-up-pg',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInUpPgComponent implements OnInit {
 
+  
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
+  
 }
