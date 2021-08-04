@@ -39,6 +39,7 @@ export class RegistrationComponent implements OnInit {
   }
 
 
+
   constructor(private firebase: CrudServicesService,
     private fireAuth:AngularFireAuth) { }
 
@@ -61,8 +62,6 @@ export class RegistrationComponent implements OnInit {
     .then((result:any) =>{
       console.log("success")
     } )
-    
-
     console.log(user)
     this.firebase.createUser(JSON.parse(JSON.stringify(user)))
       .then((response: any) => {
