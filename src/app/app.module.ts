@@ -7,6 +7,7 @@ import { AppMaterialModule } from './app-materials.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router'
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 
@@ -26,7 +27,8 @@ import { DashboardComponent } from './views/side-nav-bar/dashboard/dashboard.com
 import { HotelsComponent } from './views/side-nav-bar/hotels/hotels.component';
 import { RoomsComponent } from './views/side-nav-bar/rooms/rooms.component'
 import { SalesComponent } from './views/side-nav-bar/sales/sales.component'
-import { UsersComponent } from './views/side-nav-bar/users/users.component'
+import { UsersComponent } from './views/side-nav-bar/users/users.component';
+import { SignInUpPgComponent } from './views/sign-in-up-pg/sign-in-up-pg.component'
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { UsersComponent } from './views/side-nav-bar/users/users.component'
     HotelsComponent,
     RoomsComponent,
     SalesComponent,
-    UsersComponent
+    UsersComponent,
+    SignInUpPgComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { UsersComponent } from './views/side-nav-bar/users/users.component'
     MatIconModule,
     RouterModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

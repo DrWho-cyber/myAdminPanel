@@ -1,0 +1,13 @@
+.forms{
+    display: flex;
+    justify-content: space-around;
+}
+.registrationForm h1 {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.autorisationForm h1 {
+    margin-top: 50px;
+    text-align: center;
+}
