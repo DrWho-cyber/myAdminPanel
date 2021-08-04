@@ -1,0 +1,22 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 500px
+}
+.mat-form-field {
+    margin: 10px 0;
+}
+
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    border: none;
+}
+
+
+.vaidated {
+    color: green;
+}
+
