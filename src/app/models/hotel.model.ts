@@ -31,6 +31,4 @@ export class Hotel{
      this.status = status;
      this.profilePicture = this.profilePicture;
     }
-
-
 }

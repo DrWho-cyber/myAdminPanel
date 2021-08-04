@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import {  User } from 'src/app/models/user.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
 import { environment } from 'src/environments/environment';
@@ -38,7 +39,9 @@ export class RegistrationComponent implements OnInit {
   }
 
 
-  constructor(private firebase: CrudServicesService) { }
+
+  constructor(private firebase: CrudServicesService,
+    private fireAuth:AngularFireAuth) { }
 
   ngOnInit(): void {
   }
@@ -55,6 +58,10 @@ export class RegistrationComponent implements OnInit {
       this.picturesArr
     )
 
+    this.fireAuth.createUserWithEmailAndPassword(this.userEmail,this.userPassword)
+    .then((result:any) =>{
+      console.log("success")
+    } )
     console.log(user)
     this.firebase.createUser(JSON.parse(JSON.stringify(user)))
       .then((response: any) => {

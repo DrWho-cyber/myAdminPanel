@@ -3,6 +3,7 @@ form {
     flex-direction: column;
     width: 500px 
 }
+
 .mat-form-field {
     margin: 10px 0;
 }
