@@ -1,1 +1,32 @@
-<p>template-driven-form works!</p>
+<form (ngSubmit)=onFormSubmit(form) #form="ngForm">
+    <div class="form-group">
+        <label for="userName">Enter name</label>
+        <input name="userName" ngModel #userName="ngModel" required pattern="[a-zA-Z ]*" type="text"
+            class="form-control">
+    </div>
+    <div class="form-group">
+        <label [ngClass]="{'error':!mobilePhone.valid && mobilePhone.touched}" for="mobilePhone">Enter mobile
+            phone</label>
+        <input name="mobilePhone" ngModel #mobilePhone="ngModel" required pattern="^[0-9]+[0-9]*$" type="text"
+            class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="email">Enter email</label>
+        <input name="email" ngModel #email="ngModel" required type="text" class="form-control">
+    </div>
+    <fieldset ngModelGroup='address'>
+        <div class="form-group">
+            <label for="country">Enter country</label>
+            <input name="country" ngModel required type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="country">Enter city</label>
+            <input name="city" ngModel required type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="country">Enter addressLocation</label>
+            <input name="addressLocation" ngModel required type="text" class="form-control">
+        </div>
+    </fieldset>
+    <button [disabled]="!form.valid" class="btn btn-dark col-md-12">Submit</button>
+</form>
