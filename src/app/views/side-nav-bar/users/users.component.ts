@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
 
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -19,7 +20,9 @@ export class UsersComponent implements OnInit {
         user.key = element.payload.doc.id;
         this.allUsers.push(user);
       });
+      console.log(this.allUsers)
     });
+    
   }
 
 

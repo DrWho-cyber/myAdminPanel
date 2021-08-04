@@ -8,7 +8,7 @@ import { CrudServicesService } from 'src/app/service/crud-services.service';
   styleUrls: ['./hotels.component.css']
 })
 export class HotelsComponent implements OnInit {
-  allHotels: Hotel[] = [];
+  allHotels: any[] = [];
   constructor(private firebase: CrudServicesService) { }
 
   ngOnInit(): void {
@@ -19,6 +19,7 @@ export class HotelsComponent implements OnInit {
         hotel.key = element.payload.doc.id;
         this.allHotels.push(hotel);
       });
+      console.log(this.allHotels)
     });
     
   }

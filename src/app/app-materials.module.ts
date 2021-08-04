@@ -10,6 +10,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -24,7 +26,9 @@ const material: any = [
   MatInputModule,
   MatSelectModule,
   MatProgressBarModule,
-  MatButtonModule
+  MatButtonModule,
+  MatCardModule,
+  MatTableModule
 ];
 
 @NgModule({
