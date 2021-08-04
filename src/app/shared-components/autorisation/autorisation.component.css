@@ -1,0 +1,12 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+.mat-form-field {
+    margin: 10px 0;
+    width: 500px !important;
+}
+
+.fieldIsfilled {
+    color: green;
+}
