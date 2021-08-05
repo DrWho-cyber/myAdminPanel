@@ -14,6 +14,7 @@ export class RegistrationComponent implements OnInit {
   userName!: string;
   userSurName!: string;
   userEmail!: string;
+  userPhone!:number;
   userPassword!: string;
   userAge!: number;
   userGender!: any;
@@ -21,7 +22,7 @@ export class RegistrationComponent implements OnInit {
 
   @ViewChild('fileInput') fileInput!: ElementRef;
   picturesArr: any[] = [];
-  user:User = new User ("","","","","",0,0,[])
+  user:User = new User ("","","","",1,"",0,0,[],0)
 
   uploadFileEvt(imgFile: any) {
 
@@ -52,16 +53,19 @@ export class RegistrationComponent implements OnInit {
       this.userName,
       this.userSurName,
       this.userEmail,
+      this.userPhone,
       this.userPassword,
       this.userAge,
       this.userGender,
-      this.picturesArr
+      this.picturesArr,
+      0
     )
 
     this.fireAuth.createUserWithEmailAndPassword(this.userEmail,this.userPassword)
     .then((result:any) =>{
       console.log("success")
     } )
+    
     console.log(user)
     this.firebase.createUser(JSON.parse(JSON.stringify(user)))
       .then((response: any) => {

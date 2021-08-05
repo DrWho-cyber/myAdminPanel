@@ -15,6 +15,11 @@
         <mat-icon [ngClass]="{'vaidated': userEmail}" matSuffix>check_circle</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="outline">
+      <mat-label for="phone">Phone</mat-label>
+      <input matInput name="phone" [(ngModel)]="userPhone" required type="number">
+      <mat-icon [ngClass]="{'vaidated': userPhone}" matSuffix>check_circle</mat-icon>
+  </mat-form-field>
+    <mat-form-field appearance="outline">
         <mat-label for="password">Password</mat-label>
         <input type="password" name="password" [(ngModel)]="userPassword" matInput required>
         <mat-icon [ngClass]="{'vaidated': userPassword}" matSuffix>check_circle</mat-icon>

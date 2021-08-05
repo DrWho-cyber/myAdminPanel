@@ -1,0 +1,11 @@
+.mat-card{
+    width: 11rem;
+    text-align: center;
+}
+
+.address, .contactInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
