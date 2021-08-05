@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegistrationComponent } from './shared-components/registration/registration.component';
+import { TemplateDrivenFormComponent } from './shared-components/template-driven-form/template-driven-form.component';
 import { DashboardComponent } from './views/side-nav-bar/dashboard/dashboard.component';
 import { HotelsComponent } from './views/side-nav-bar/hotels/hotels.component';
 import { RoomsComponent } from './views/side-nav-bar/rooms/rooms.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'Rooms', component: RoomsComponent },
   { path: 'Users', component: UsersComponent },
   { path: 'Sales', component: SalesComponent },
-  { path: 'registration', component: RegistrationComponent }
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'templateDrivenform', component: TemplateDrivenFormComponent }
 ];
 
 @NgModule({

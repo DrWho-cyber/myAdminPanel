@@ -26,10 +26,9 @@
    <button mat-raised-button>{{hotel.status}}</button>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color='accent'>Update</button>
-      <button mat-raised-button color='warn'>Delete</button>
+      <a routerLink="/templateDrivenform"><button mat-raised-button color='accent'>Update</button></a>
+      <button (click)="deleteHotel(hotel.key)" mat-raised-button color='warn'>Delete</button>
     </mat-card-actions>
   </mat-card>
 
-
-  <app-template-driven-form></app-template-driven-form>
+<router-outlet></router-outlet>

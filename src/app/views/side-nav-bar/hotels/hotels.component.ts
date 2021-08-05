@@ -24,5 +24,7 @@ export class HotelsComponent implements OnInit {
     
   }
 
-
+  deleteHotel(key:string){
+    console.log(key)
+  }
 }
