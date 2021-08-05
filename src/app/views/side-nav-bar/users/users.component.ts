@@ -28,7 +28,6 @@ export class UsersComponent implements OnInit {
   constructor(private firebase: CrudServicesService,
     private fireAuth: AngularFireAuth) { }
 
-
   ngOnInit(): void {
     this.firebase.readAllUsers().subscribe((response: any) => {
       this.dataSource = [];
