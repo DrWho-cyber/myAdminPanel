@@ -1,1 +1,35 @@
-<p>Hotels works</p>
+<mat-card *ngFor="let hotel of allHotels" class="example-card">
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{hotel.userName}}</mat-card-title>
+      <mat-card-subtitle>{{hotel.status}}</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+        <div class="address">
+      <p>
+        {{hotel.address.country}}
+      </p>
+      <p>
+        {{hotel.address.city}}
+      </p>
+      <p>
+        {{hotel.address.addressLocation}}
+      </p>
+   </div>
+
+   <div class="contactInfo">
+       <p>{{hotel.phone}}</p>
+       <p>{{hotel.email}}</p>
+   </div>
+   <button mat-raised-button>{{hotel.status}}</button>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color='accent'>Update</button>
+      <button mat-raised-button color='warn'>Delete</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+  <app-template-driven-form></app-template-driven-form>

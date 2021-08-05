@@ -1,10 +1,11 @@
 form {
     display: flex;
     flex-direction: column;
+    width: 500px 
 }
+
 .mat-form-field {
     margin: 10px 0;
-    width: 500px !important;
 }
 
 .mat-toolbar-single-row {
@@ -16,9 +17,6 @@ form {
     width: 200px;
 }
 
-.mat-form-field {
-    width: 100%;
-}
 
 #uploadFile {
     top: 0px;
