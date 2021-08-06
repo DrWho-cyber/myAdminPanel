@@ -20,9 +20,15 @@ export class HotelsComponent implements OnInit {
         hotel.key = element.payload.doc.id;
         this.allHotels.push(hotel);
       });
+      
       console.log(this.allHotels)
     });
     
+  }
+  
+  //სტატუსის დააფდეითება
+  updateStatus(key:string){
+
   }
    
   getInfoToupdate(key:string){

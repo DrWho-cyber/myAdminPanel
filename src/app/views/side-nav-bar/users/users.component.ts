@@ -43,9 +43,11 @@ export class UsersComponent implements OnInit {
 
   }
 
-  addUser() {
 
-    //აქ უნდა იყოს იუზერის ჩაწერის ფუნქცია
+
+  //სტატუსის დააფდეითება
+  updateStatus(key:string){
+
   }
 
   removeUser(event: any) {
