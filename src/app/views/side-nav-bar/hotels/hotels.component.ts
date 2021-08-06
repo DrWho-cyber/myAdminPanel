@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hotel } from 'src/app/models/hotel.model';
+import { Router } from '@angular/router';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
 
 @Component({
@@ -9,7 +9,8 @@ import { CrudServicesService } from 'src/app/service/crud-services.service';
 })
 export class HotelsComponent implements OnInit {
   allHotels: any[] = [];
-  constructor(private firebase: CrudServicesService) { }
+  constructor(private firebase: CrudServicesService,
+    private route: Router) { }
 
   ngOnInit(): void {
     this.firebase.readAllHotel().subscribe((response: any) => {
@@ -22,6 +23,10 @@ export class HotelsComponent implements OnInit {
       console.log(this.allHotels)
     });
     
+  }
+   
+  getInfoToupdate(key:string){
+    this.route.navigate([`./update/${key}`]);
   }
 
   deleteHotel(key:string){
