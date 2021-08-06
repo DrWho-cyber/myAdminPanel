@@ -6,17 +6,23 @@ import { DashboardComponent } from './views/side-nav-bar/dashboard/dashboard.com
 import { HotelsComponent } from './views/side-nav-bar/hotels/hotels.component';
 import { RoomsComponent } from './views/side-nav-bar/rooms/rooms.component';
 import { SalesComponent } from './views/side-nav-bar/sales/sales.component';
+import { SideNavBarComponent } from './views/side-nav-bar/side-nav-bar.component';
 import { UsersComponent } from './views/side-nav-bar/users/users.component';
+import { SignInUpPgComponent } from './views/sign-in-up-pg/sign-in-up-pg.component';
+import { UpdateHotelComponent } from './views/update-hotel/update-hotel.component';
 
 
 const routes: Routes = [
+  {path: '', component: SideNavBarComponent},
   { path: 'Dashboard', component: DashboardComponent },
-  { path: 'Hotels', component: HotelsComponent },
+  { path: 'Hotels', component: HotelsComponent},
+  {path:'update/:key', 
+    component:UpdateHotelComponent},
   { path: 'Rooms', component: RoomsComponent },
   { path: 'Users', component: UsersComponent },
   { path: 'Sales', component: SalesComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'templateDrivenform', component: TemplateDrivenFormComponent }
+  { path: 'templateDrivenform', component: TemplateDrivenFormComponent}
 ];
 
 @NgModule({

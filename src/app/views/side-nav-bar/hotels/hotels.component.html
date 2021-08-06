@@ -26,7 +26,7 @@
    <button mat-raised-button>{{hotel.status}}</button>
     </mat-card-content>
     <mat-card-actions>
-      <a routerLink="/templateDrivenform"><button mat-raised-button color='accent'>Update</button></a>
+      <button (click)="getInfoToupdate(hotel.key)" mat-raised-button color='accent'>Update</button>
       <button (click)="deleteHotel(hotel.key)" mat-raised-button color='warn'>Delete</button>
     </mat-card-actions>
   </mat-card>
