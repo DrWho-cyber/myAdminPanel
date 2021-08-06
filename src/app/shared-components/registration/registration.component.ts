@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'src/app/models/user.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
-import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-registration',

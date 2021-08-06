@@ -1,16 +1,26 @@
-<div class="forms">
+<div  class="forms">
     <div class="registrationForm">
-    <h1>Registration</h1>
-<app-registration></app-registration>
+<button *ngIf='visibility' mat-flat-button color="primary" (click)="goToRegistration()">Registration</button>
+
+<button *ngIf='!visibility' mat-raised-button color="primary" (click)="goBack()">go back</button>
+<router-outlet></router-outlet>
 </div>
-<div class="autorisationForm">
-    <h1>Sign in</h1>
-    <app-autorisation></app-autorisation>
+<div *ngIf='visibility'  class="logoArea">
+
+<p class="question">Do you want to?</p>
+
+<h1>TRAVEL</h1>
+
+<p class="more"><span id="bigm">M</span>ORE</p>
+
+</div>
+<div *ngIf='visibility' class="autorisationForm">
+    <button mat-stroked-button color="primary" >Authorization</button> 
 </div>
 
 </div>
 
-<app-hotels></app-hotels>
-<app-users></app-users>
+
+
 
 
