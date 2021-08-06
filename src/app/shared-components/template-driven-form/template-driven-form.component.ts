@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Hotel } from 'src/app/models/hotel.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-template-driven-form',
@@ -13,7 +15,8 @@ export class TemplateDrivenFormComponent implements OnInit, OnDestroy {
 
   constructor(private firebase: CrudServicesService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private location: Location) { }
 
   @ViewChild('form') form!: NgForm;
   key: string = '';
@@ -45,35 +48,26 @@ export class TemplateDrivenFormComponent implements OnInit, OnDestroy {
     var hotel = form.value as Hotel;
     hotel.key = this.key;
     this.firebase.updateHotel(hotel).then((response: any) => {
-      // this.form.setValue({
-      //   userName: "",
-      //   address: {
-      //     country:"",
-      //     city:"",
-      //     addressLocation: ""
-      //   },
-      //   phone: "",
-      //   email: "",
-      //   stars: "",
-      //   status: "",
-      // });
       this.form.reset()
-      this.router.navigate(["/"])
     })
+    this.goBack()
+  }
 
+  goBack(): void {
+    this.location.back();
   }
 
   onFormSubmit(form: NgForm) {
     var item = form.value as Hotel;
     this.firebase.createHotel(JSON.parse(JSON.stringify(item)))
       .then((response: any) => {
-
+       console.log(response);
       })
-    console.log(item);
+    
   }
 
   //ფორმის გასუფთავება
   ngOnDestroy(): void {
-    this.form.setValue({});
+    // this.form.patchValue({});
   }
 }

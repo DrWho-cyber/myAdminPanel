@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Hotel } from 'src/app/models/hotel.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
 
 @Component({
@@ -20,9 +21,20 @@ export class HotelsComponent implements OnInit {
         hotel.key = element.payload.doc.id;
         this.allHotels.push(hotel);
       });
+      
       console.log(this.allHotels)
     });
     
+  }
+  
+  //სტატუსის დააფდეითება
+  updateStatus(hotel:Hotel){
+    if(hotel.status == 1){
+      hotel.status = 0
+    }else{
+      hotel.status = 1
+    }
+    this.firebase.updateHotel(hotel)
   }
    
   getInfoToupdate(key:string){

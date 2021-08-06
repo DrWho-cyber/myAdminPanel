@@ -43,9 +43,16 @@ export class UsersComponent implements OnInit {
 
   }
 
-  addUser() {
 
-    //აქ უნდა იყოს იუზერის ჩაწერის ფუნქცია
+
+  //სტატუსის დააფდეითება
+  updateStatus(user:User){
+    if(user.status == 1){
+      user.status = 0
+    }else{
+      user.status = 1
+    }
+    this.firebase.updateUser(user)
   }
 
   removeUser(event: any) {
@@ -60,9 +67,6 @@ export class UsersComponent implements OnInit {
           user?.delete()
         })
       })
-
-
-
     console.log(key)
   }
 }

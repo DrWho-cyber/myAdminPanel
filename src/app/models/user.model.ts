@@ -17,10 +17,10 @@ export class User{
     public password!:string;
     public age!:number;
     public gender!:Gender;
-    public image!:string[];
+    public image!:string;
     public status!:Status;
 
-    constructor(key:string, userName:string, surname:string, mail:string, phone:number, password:string, age:number, gender:Gender, image:string[], status:Status){
+    constructor(key:string, userName:string, surname:string, mail:string, phone:number, password:string, age:number, gender:Gender, image:string, status:Status){
         this.key = key;
         this.userName = userName;
         this.surname = surname;
