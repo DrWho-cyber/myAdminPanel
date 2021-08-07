@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
-import {  User } from 'src/app/models/user.model';
+import { Location } from '@angular/common';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { User } from 'src/app/models/user.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
-import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-registration',
@@ -14,59 +15,60 @@ export class RegistrationComponent implements OnInit {
   userName!: string;
   userSurName!: string;
   userEmail!: string;
+  userPhone!: number;
   userPassword!: string;
   userAge!: number;
   userGender!: any;
 
+  
+  constructor(private firebase: CrudServicesService,
+    private fireAuth: AngularFireAuth,
+    private location: Location
+    ) { }
 
+    ngOnInit(): void {
+    }
+  
   @ViewChild('fileInput') fileInput!: ElementRef;
-  picturesArr: any[] = [];
-  user:User = new User ("","","","","",0,0,[])
+  ProfPictur: any;
+  user: User = new User("", "", "", "", 1, "", 0, 0, "", 0)
 
   uploadFileEvt(imgFile: any) {
-
-    if (imgFile.target.files && imgFile.target.files[0]) {
-      let self = this;
-      for (let i = 0; i < imgFile.target.files.length; i++) {
-        const reader = new FileReader();
-        reader.readAsDataURL(imgFile.target.files[i]);
-        reader.onload = function () {
-          self.picturesArr.push(reader.result);
-        }
-      }
+    let self = this;
+    const reader = new FileReader();
+    reader.readAsDataURL(imgFile.target.files[0]);
+    reader.onload = function () {
+      self.ProfPictur = reader.result;
     }
-
-  }
-
-
-
-  constructor(private firebase: CrudServicesService,
-    private fireAuth:AngularFireAuth) { }
-
-  ngOnInit(): void {
   }
 
   onSubmit() {
-     var user:User = new User(
+    var user: User = new User(
       "",
       this.userName,
       this.userSurName,
       this.userEmail,
+      this.userPhone,
       this.userPassword,
       this.userAge,
       this.userGender,
-      this.picturesArr
+      this.ProfPictur,
+      0
     )
 
-    this.fireAuth.createUserWithEmailAndPassword(this.userEmail,this.userPassword)
-    .then((result:any) =>{
-      console.log("success")
-    } )
+    this.fireAuth.createUserWithEmailAndPassword(this.userEmail, this.userPassword)
+      .then((result: any) => {
+        alert("success")
+        this.location.back()
+      }).catch((error:any) =>{
+        alert(error.message)
+      })
+
     console.log(user)
     this.firebase.createUser(JSON.parse(JSON.stringify(user)))
       .then((response: any) => {
-        
+
       })
   }
-  
+
 }

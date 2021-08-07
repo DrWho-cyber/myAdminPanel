@@ -1,9 +1,16 @@
+<div class="cardsArea">
+
 <mat-card *ngFor="let hotel of allHotels" class="example-card">
     <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{hotel.userName}}</mat-card-title>
-      <mat-card-subtitle>{{hotel.status}}</mat-card-subtitle>
+      <mat-card-subtitle>
+        <mat-icon *ngIf="hotel.stars >= 1" matSuffix>star_rate</mat-icon>
+        <mat-icon *ngIf="hotel.stars >= 2" matSuffix>star_rate</mat-icon>
+        <mat-icon *ngIf="hotel.stars >= 3" matSuffix>star_rate</mat-icon>
+        <mat-icon *ngIf="hotel.stars >= 4" matSuffix>star_rate</mat-icon>
+        <mat-icon *ngIf="hotel.stars == 5" matSuffix>star_rate</mat-icon>
+      </mat-card-subtitle>
     </mat-card-header>
     
     <mat-card-content>
@@ -23,13 +30,12 @@
        <p>{{hotel.phone}}</p>
        <p>{{hotel.email}}</p>
    </div>
-   <button mat-raised-button>{{hotel.status}}</button>
+   <button (click)="updateStatus(hotel)" [ngClass]="{ 'vip' : hotel.status == 1, 'user': hotel.status == 0}" mat-raised-button>{{hotel.status == 1 ? "VIP" : "User"}}</button>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color='accent'>Update</button>
-      <button mat-raised-button color='warn'>Delete</button>
+      <button (click)="getInfoToupdate(hotel.key)" mat-raised-button color='accent'>Update</button>
+      <button (click)="deleteHotel(hotel.key)" mat-raised-button color='warn'>Delete</button>
     </mat-card-actions>
   </mat-card>
-
-
-  <app-template-driven-form></app-template-driven-form>
+</div>
+<router-outlet></router-outlet>

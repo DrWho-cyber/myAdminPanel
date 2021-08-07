@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Hotel } from 'src/app/models/hotel.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
 
@@ -9,7 +10,8 @@ import { CrudServicesService } from 'src/app/service/crud-services.service';
 })
 export class HotelsComponent implements OnInit {
   allHotels: any[] = [];
-  constructor(private firebase: CrudServicesService) { }
+  constructor(private firebase: CrudServicesService,
+    private route: Router) { }
 
   ngOnInit(): void {
     this.firebase.readAllHotel().subscribe((response: any) => {
@@ -19,10 +21,29 @@ export class HotelsComponent implements OnInit {
         hotel.key = element.payload.doc.id;
         this.allHotels.push(hotel);
       });
+      
       console.log(this.allHotels)
     });
     
   }
+  
+  //სტატუსის დააფდეითება
+  updateStatus(hotel:Hotel){
+    if(hotel.status == 1){
+      hotel.status = 0
+    }else{
+      hotel.status = 1
+    }
+    this.firebase.updateHotel(hotel)
+  }
+   
+  getInfoToupdate(key:string){
+    this.route.navigate([`./update/${key}`]);
+  }
 
+  deleteHotel(key:string){
+    this.firebase.deleteHotel(key).then((response:any) =>{
 
+    })
+  }
 }
