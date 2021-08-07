@@ -4,18 +4,18 @@
     <mat-sidenav opened #sidenav [mode]="mode.value">
         <mat-nav-list>
             <mat-list-item *ngFor="let link of links">  
-            <a matLine [routerLink]="'/'+link.name"><mat-icon>{{link.icon}}</mat-icon>{{link.name}}</a>
+            <a matLine (click)=navigateto(link.name) ><mat-icon>{{link.icon}}</mat-icon>{{link.name}}</a>
         </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>
 
-
+    
     <mat-sidenav-content>
         <button mat-button (click)="sidenav.toggle(); iconChange()">
 
                 <mat-icon>{{menuIcon}}</mat-icon>
             </button>
-        
+         
          <router-outlet></router-outlet>
 
     </mat-sidenav-content>  

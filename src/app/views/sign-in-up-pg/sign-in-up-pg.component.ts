@@ -3,6 +3,7 @@ import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-sign-in-up-pg',
   templateUrl: './sign-in-up-pg.component.html',
@@ -10,21 +11,28 @@ import { Router } from '@angular/router';
 })
 export class SignInUpPgComponent implements OnInit {
   visibility:boolean = true
-  
-  
+ 
   constructor(private route:Router, private location: Location) { }
 
   ngOnInit(): void {
+    
   }
 
-  goToRegistration(){
-    this.route.navigate(['/registration']);
-    this.visibility = false;
+  goToRegistrationOrSignInComp(link: string){
+    this.route.navigate([`/${link}`]);
   }
 
   goBack(): void {
     this.visibility = true;
     this.location.back();
   }
+
+  componentAdded(){
+    this.visibility = false;
+  }
   
+
+  componentRemoved(){
+    this.visibility = true;
+  }
 }
