@@ -4,8 +4,7 @@ import { Hotel } from 'src/app/models/hotel.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { Room } from 'src/app/models/hotel.model';
-import { RoomsComponent } from 'src/app/views/side-nav-bar/rooms/rooms.component';
+import { Room } from 'src/app/models/room.model';
 
 
 @Component({
@@ -84,13 +83,14 @@ export class TemplateDrivenFormComponent implements OnInit, OnDestroy {
   goBack(): void {
     this.location.back();
   }
- roomObj!:Room;
+
+ roomObj:Room = new Room('twiin',20,["conditioning", "roomservisec"],'balcony',true,false,257,false,true,["picture"],false,{toSixYearsOld: 20, fromSixToTvelve: 40,});
 
   onFormSubmit(form: NgForm) {
     (form.value as Hotel).profilePicture = this.ProfPictur;
     (form.value as Hotel).otherPictures = this.otherPictures;
-    (form.value as Hotel).rooms.push(this.roomObj)
-    var item = form.value as Hotel;
+    (form.value as Hotel).rooms = this.roomObj
+      var item = form.value as Hotel;
     console.log(JSON.stringify(item))
     this.firebase.createHotel(JSON.parse(JSON.stringify(item)))
       .then((response: any) => {
