@@ -38,7 +38,7 @@ export class HotelsComponent implements OnInit {
   }
    
   getInfoToupdate(key:string){
-    this.route.navigate([`./update/${key}`]);
+    this.route.navigate([`./main/update/${key}`]);
   }
 
   deleteHotel(key:string){

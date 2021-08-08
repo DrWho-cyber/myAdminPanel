@@ -29,7 +29,8 @@ import { RoomsComponent } from './views/side-nav-bar/rooms/rooms.component'
 import { SalesComponent } from './views/side-nav-bar/sales/sales.component'
 import { UsersComponent } from './views/side-nav-bar/users/users.component';
 import { SignInUpPgComponent } from './views/sign-in-up-pg/sign-in-up-pg.component';
-import { UpdateHotelComponent } from './views/update-hotel/update-hotel.component'
+import { UpdateHotelComponent } from './views/update-hotel/update-hotel.component';
+import { CarouselComponent } from './shared-components/carousel/carousel.component'
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { UpdateHotelComponent } from './views/update-hotel/update-hotel.componen
     SalesComponent,
     UsersComponent,
     SignInUpPgComponent,
-    UpdateHotelComponent
+    UpdateHotelComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

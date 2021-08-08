@@ -50,7 +50,42 @@
             <mat-option value="1">VIP</mat-option>
         </mat-select>
     </mat-form-field>
-    <button mat-flat-button color="primary" [disabled]="!form.valid" class="btn btn-dark col-md-12">Submit</button>
-    <button type="button" (click)="UpdateHotelInfo(form)" mat-flat-button color="primary" class="btn btn-dark col-md-12">Update</button>
+    <mat-form-field>
+        <div>
+          <mat-toolbar>
+            <input placeholder="Profile Picture" matInput readonly name="name"/>
+            <button mat-flat-button color="primary">
+              Browse File
+            </button>
+          </mat-toolbar>
+          <input 
+          type="file" 
+          #fileInput 
+          id="uploadFile" 
+          (change)="uploadFileEvt($event)" 
+          name="uploadFile" 
+          />
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <div>
+          <mat-toolbar>
+            <input placeholder="Other pictures" matInput readonly name="name"/>
+            <button mat-flat-button color="primary">
+              Browse File
+            </button>
+          </mat-toolbar>
+          <input 
+          multiple
+          type="file"
+          #filesInput 
+          id="uploadFile" 
+          (change)=" uploadMultFileEvt($event) " 
+          name="uploadFile" 
+          />
+        </div>
+      </mat-form-field>
+    <button *ngIf="visible" mat-flat-button color="primary" [disabled]="form.valid" class="btn btn-dark col-md-12">Submit</button>
+    <button *ngIf="!visible" type="button" (click)="UpdateHotelInfo(form)" [disabled]="!form.valid" mat-flat-button color="primary" class="btn btn-dark col-md-12">Update</button>
 </form>
 

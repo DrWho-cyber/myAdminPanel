@@ -1,7 +1,8 @@
 form {
     display: flex;
     flex-direction: column;
-    width: 500px
+    width: 500px;
+    margin: auto;
 }
 .mat-form-field {
     margin: 10px 0;
@@ -18,5 +19,22 @@ fieldset {
 
 .vaidated {
     color: green;
+}
+
+
+.mat-toolbar-single-row button {
+    width: 200px;
+}
+
+
+#uploadFile {
+    top: 0px;
+    left: 0px;
+    width: 100%;    
+    z-index: 9;
+    opacity: 0;
+    height: 100%;
+    cursor: pointer;
+    position: absolute;
 }
 

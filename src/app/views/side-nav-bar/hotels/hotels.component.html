@@ -1,7 +1,13 @@
 <div class="cardsArea">
-
+  <div class="demo-button-container">
+    <a routerLink="/main/templateDrivenform">
+      <button color="primary" mat-raised-button class="demo-button">
+        <mat-icon matSuffix>add</mat-icon>Add Hotel
+      </button>
+    </a>
+  </div>
 <mat-card *ngFor="let hotel of allHotels" class="example-card">
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <img mat-card-image [src]="hotel.profilePicture" alt="Photo of a Shiba Inu">
     <mat-card-header>
       <mat-card-title>{{hotel.userName}}</mat-card-title>
       <mat-card-subtitle>
@@ -36,6 +42,11 @@
       <button (click)="getInfoToupdate(hotel.key)" mat-raised-button color='accent'>Update</button>
       <button (click)="deleteHotel(hotel.key)" mat-raised-button color='warn'>Delete</button>
     </mat-card-actions>
+    <app-carousel [slides]="hotel.otherPictures"></app-carousel>
   </mat-card>
+
+  
 </div>
+
+
 <router-outlet></router-outlet>

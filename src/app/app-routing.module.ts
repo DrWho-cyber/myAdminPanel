@@ -21,12 +21,13 @@ const routes: Routes = [
   { path: 'Rooms', component: RoomsComponent},
   { path: 'Users', component: UsersComponent},
   { path: 'Sales', component: SalesComponent},
+  { path: 'templateDrivenform', component: TemplateDrivenFormComponent},
+  { path:'update/:key',  component:UpdateHotelComponent}
   ]
 },
   
-  { path:'update/:key',  component:UpdateHotelComponent},
+  
   { path: 'registration', component: RegistrationComponent },
-  { path: 'templateDrivenform', component: TemplateDrivenFormComponent},
   { path: 'autorisation', component: AutorisationComponent},
   { path: 'signInUp', component: SignInUpPgComponent}
  
