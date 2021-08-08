@@ -16,19 +16,19 @@
     <mat-card-content>
         <div class="address">
       <p>
-        {{hotel.address.country}}
+        Country: {{hotel.address.country}}
       </p>
       <p>
-        {{hotel.address.city}}
+       City:  {{hotel.address.city}}
       </p>
       <p>
-        {{hotel.address.addressLocation}}
+       Location:  {{hotel.address.addressLocation}}
       </p>
    </div>
 
    <div class="contactInfo">
-       <p>{{hotel.phone}}</p>
-       <p>{{hotel.email}}</p>
+     Phone:  <p>{{hotel.phone}}</p>
+     Email:  <p>{{hotel.email}}</p>
    </div>
    <button (click)="updateStatus(hotel)" [ngClass]="{ 'vip' : hotel.status == 1, 'user': hotel.status == 0}" mat-raised-button>{{hotel.status == 1 ? "VIP" : "User"}}</button>
     </mat-card-content>

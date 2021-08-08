@@ -12,7 +12,7 @@ export class SideNavBarComponent implements OnInit, DoCheck {
   menuIcon: string = 'switch_right';
   menuIconChange: boolean = false;
   
-  constructor(private route:Router) { }
+  constructor(public route:Router) { }
 
   ngOnInit(): void {
   }
