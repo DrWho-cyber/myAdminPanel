@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
@@ -12,6 +12,7 @@ export class ReactiveFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm()
+    
   }
   
   createForm() {
@@ -26,7 +27,6 @@ export class ReactiveFormComponent implements OnInit {
      animals:[null, Validators.required],
       pictures:[null, Validators.required],
       children:[null, Validators.required],
-
     })
   }
 
@@ -36,10 +36,15 @@ export class ReactiveFormComponent implements OnInit {
     // console.log(name,email);
     console.log(this.cvForm.value)
   }
+  
+ 
+  getRoomInfo(){
+    //მაგალითი: this.cvForm.get('roomType')?.setValue('giorgi');
+  }
 
   update() {
-    this.cvForm.get('roomType')?.setValue('giorgi');
-    this.cvForm.get('email')?.setValue('okruadze@gmail.com');
+   //ფაიერბეისში გასაგზავნად
+    
   }
 
 
@@ -47,23 +52,5 @@ export class ReactiveFormComponent implements OnInit {
 }
 
 
-// loginForm!: FormGroup;
 // emailRegx = /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
 
-// constructor(
-//   private formBuilder: FormBuilder
-// ) { }
-
-// ngOnInit() {
-//   this.loginForm = this.formBuilder.group({
-//     email: [null, [Validators.required, Validators.pattern(this.emailRegx)]],
-//     password: [null, Validators.required]
-//   });
-// }
-
-// submit() {
-//   if (!this.loginForm.valid) {
-//     return;
-//   }
-//   console.log(this.loginForm.value);
-// }
