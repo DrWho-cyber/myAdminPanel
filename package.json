@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~12.0.3",
     "@angular/platform-browser-dynamic": "~12.0.3",
     "@angular/router": "~12.0.3",
+    "@ngbmodule/material-carousel": "^0.7.1",
+    "@ngmodule/material-carousel": "^0.6.0",
     "firebase": "^8.8.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",

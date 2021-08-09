@@ -1,34 +1,68 @@
 <form #form="ngForm" [formGroup]="cvForm" (ngSubmit)="onFormSubmit()">
-    <div class="form-group">
-        <label for="fullName">Enter full name</label>
-        <input formControlName="fullName" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="email">Enter email</label>
-        <input formControlName="email" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="companyName">Enter companyName</label>
-        <input formControlName="companyName" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="position">Enter position</label>
-        <input formControlName="position" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="position">Enter experience</label>
-        <input formControlName="experience" type="text" class="form-control">
-    </div>
-    <div formGroupName="education">
-        <div class="form-group">
-            <label for="uni">Enter uni</label>
-            <input formControlName="uni" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="school">Enter school</label>
-            <input formControlName="school" type="text" class="form-control">
-        </div>
-    </div>
-    <button [disabled]="!form.valid" class="btn btn-dark col-md-12">Submit</button>
-    <button type="button" (click)="setDefaultValues()" class="btn btn-dark col-md-12">Set Default Values</button>
+    <mat-form-field appearance="outline">
+        <mat-label for="roomType">Type</mat-label>
+        <input matInput  class="form-control" id="roomType" type="text" formControlName="roomType">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label for="facilities">Facilities</mat-label>
+        <input class="form-control" id="facilities" matInput type="text" formControlName="facilities">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label for="view">View</mat-label>
+        <input class="form-control" id="view" matInput type="text" formControlName="view">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label for="sale">Sale</mat-label>
+        <input class="form-control" id="sale"  matInput  matInputtype="text" formControlName="sale">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label for="reserveDates">ReserveDates</mat-label>
+        <input class="form-control" id="reserveDates" matInput type="text" formControlName="reserveDates">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label for="prise">Prise</mat-label>
+        <input class="form-control" id="prise" matInput type="text" formControlName="prise">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label for="smoking">Smoking</mat-label>
+        <input class="form-control" id="smoking" matInput type="text" formControlName="smoking">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label for="animals">Animals</mat-label>
+        <input class="form-control" id="animals" matInput type="text" formControlName="animals">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label for="pictures">Pictures</mat-label>
+        <input class="form-control" id="pictures" matInput type="text" formControlName="pictures">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label for="children">Children</mat-label>
+        <input class="form-control" id="children" matInput type="text" formControlName="children">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="!form.valid">Submit</button>
+    <button mat-raised-button color="primary" type="button" (click)="update()">Update</button>
 </form>
+
+
+<!-- <div class="example-container">
+    <div class="form-container">
+      <form [formGroup]="loginForm" (submit)="submit()">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> E-mail
+          </mat-label>
+          <input matInput formControlName="email" required>
+          
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Password
+          </mat-label>
+          <input matInput formControlName="password" type="password">
+          
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Log In</button>
+      </form>
+    </div>
+  </div> -->

@@ -38,7 +38,11 @@ export class HotelsComponent implements OnInit {
   }
    
   getInfoToupdate(key:string){
-    this.route.navigate([`./update/${key}`]);
+    this.route.navigate([`./main/update/${key}`]);
+  }
+  
+  getRooms(key:string){
+    this.route.navigate([`./main/Rooms/${key}`]);
   }
 
   deleteHotel(key:string){
@@ -46,4 +50,7 @@ export class HotelsComponent implements OnInit {
 
     })
   }
+
+
+
 }

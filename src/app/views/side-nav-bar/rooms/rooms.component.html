@@ -1,1 +1,58 @@
-<p>rooms works</p>
+<div class="cardsArea">
+  <div class="demo-button-container">
+    <a routerLink="/main/reavtive">
+      <button color="primary" mat-raised-button class="demo-button">
+        <mat-icon matSuffix>add</mat-icon>Add room
+      </button>
+    </a>
+  </div>
+  <mat-card *ngFor="let hotel of allHotels" class="example-card">
+    <app-carousel [slides]="hotel.rooms.pictures"></app-carousel>
+    <mat-card-header>
+      <mat-card-title>{{hotel.rooms.type}}</mat-card-title>
+      <mat-card-subtitle>
+        <p *ngFor="let facil of hotel.rooms.facilities">{{facil}}</p>
+        <!-- <mat-icon *ngIf="hotel.stars >= 1" matSuffix>star_rate</mat-icon>
+          <mat-icon *ngIf="hotel.stars >= 2" matSuffix>star_rate</mat-icon>
+          <mat-icon *ngIf="hotel.stars >= 3" matSuffix>star_rate</mat-icon>
+          <mat-icon *ngIf="hotel.stars >= 4" matSuffix>star_rate</mat-icon>
+          <mat-icon *ngIf="hotel.stars == 5" matSuffix>star_rate</mat-icon> -->
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="address">
+        <p>
+          Size: {{hotel.rooms.size}}
+        </p>
+        <p>
+          View: {{hotel.rooms.view}}
+        </p>
+        <p>
+          Smoking: {{hotel.rooms.smoking}}
+        </p>
+        <p>
+          Parking: {{hotel.rooms.parking}}
+        </p>
+        <p>
+          animals: {{hotel.rooms.animals}}
+        </p>
+      </div>
+
+      <div class="contactInfo">
+        Children: <p>
+          to Six Years Old: {{hotel.rooms.children.toSixYearsOld | percent}},
+          from Six To Tvelve {{hotel.rooms.children.fromSixToTvelve | percent}}
+        </p>
+        Prise: <p>{{hotel.rooms.prise | currency}}</p>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="getInfoToupdate(hotel.key)" mat-raised-button color='accent'>Update</button>
+      <button (click)="deleteHotel(hotel.key)" mat-raised-button color='warn'>Delete</button>
+    </mat-card-actions>
+
+  </mat-card>
+
+
+</div>

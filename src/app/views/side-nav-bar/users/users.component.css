@@ -2,10 +2,12 @@
   margin: auto;
   width: 50%;
 }
+
 table {
   margin: auto;
-  margin-top: 200px;
+  margin-top: 100px;
   width: 100%;
+  font-family: 'Gowun Batang', serif;
 }
 
 tr.example-detail-row {
@@ -66,7 +68,9 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .mat-raised-button {
   padding-left: 5px;
-  font-size: 16px}
+  font-size: 16px;
+  font-family: 'Gowun Batang', serif;
+}
 
   .admin {
     background-color: green;
