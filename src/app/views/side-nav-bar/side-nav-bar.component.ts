@@ -23,7 +23,7 @@ export class SideNavBarComponent implements OnInit, DoCheck {
 
   mode = new FormControl('side');
 
-  links: { name: string, icon: string }[] = [{ name: 'Dashboard', icon: 'dashboard' }, { name: 'Hotels', icon: 'folder_open' }, { name: 'Rooms', icon: 'room' }, { name: 'Users', icon: 'verified_user' }, { name: 'Sales', icon: 'star' }];
+  links: { name: string, icon: string }[] = [{ name: 'Dashboard', icon: 'dashboard' }, { name: 'Hotels', icon: 'folder_open' }, { name: 'Users', icon: 'verified_user' }, { name: 'Sales', icon: 'star' }];
 
   iconChange() {
     this.menuIconChange = !this.menuIconChange;

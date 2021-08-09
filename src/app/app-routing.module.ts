@@ -18,11 +18,11 @@ const routes: Routes = [
   children: [
   { path: 'Dashboard', component: DashboardComponent},
   { path: 'Hotels', component: HotelsComponent},
-  { path: 'Rooms', component: RoomsComponent},
   { path: 'Users', component: UsersComponent},
   { path: 'Sales', component: SalesComponent},
   { path: 'templateDrivenform', component: TemplateDrivenFormComponent},
-  { path:'update/:key',  component:UpdateHotelComponent}
+  { path:'update/:key',  component:UpdateHotelComponent},
+  { path: 'Rooms/:key', component: RoomsComponent},
   ]
 },
   

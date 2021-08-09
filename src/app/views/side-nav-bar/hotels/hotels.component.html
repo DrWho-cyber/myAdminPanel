@@ -37,6 +37,7 @@
      Email:  <p>{{hotel.email}}</p>
    </div>
    <button (click)="updateStatus(hotel)" [ngClass]="{ 'vip' : hotel.status == 1, 'user': hotel.status == 0}" mat-raised-button>{{hotel.status == 1 ? "VIP" : "User"}}</button>
+   <button (click)="getRooms(hotel.key)" mat-raised-button color='primary'>Rooms</button>
     </mat-card-content>
     <mat-card-actions>
       <button (click)="getInfoToupdate(hotel.key)" mat-raised-button color='accent'>Update</button>

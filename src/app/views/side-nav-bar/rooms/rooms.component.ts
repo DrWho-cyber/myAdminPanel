@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CrudServicesService } from 'src/app/service/crud-services.service';
 
 @Component({
   selector: 'app-rooms',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rooms.component.css']
 })
 export class RoomsComponent implements OnInit {
+  allHotels: any[] = [];
+  constructor(private firebase: CrudServicesService,
+    private route: Router) { }
 
-  constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {this.firebase.readAllHotel().subscribe((response: any) => {
+    this.allHotels = [];
+    response.forEach((element: any) => {
+      var hotel = element.payload.doc.data();
+      hotel.key = element.payload.doc.id;
+      this.allHotels.push(hotel);
+    });
+  });
   }
 
 }

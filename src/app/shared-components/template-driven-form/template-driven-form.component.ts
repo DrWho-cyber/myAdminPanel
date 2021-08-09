@@ -84,7 +84,7 @@ export class TemplateDrivenFormComponent implements OnInit, OnDestroy {
     this.location.back();
   }
 
- roomObj:Room = new Room('twiin',20,["conditioning", "roomservisec"],'balcony',true,false,257,false,true,["picture"],false,{toSixYearsOld: 20, fromSixToTvelve: 40,});
+ roomObj:Room = new Room('twin',20,["conditioning", "roomservisec"],'balcony',true,false,257,false,true,["picture"],false,{toSixYearsOld: 20, fromSixToTvelve: 40,});
 
   onFormSubmit(form: NgForm) {
     (form.value as Hotel).profilePicture = this.ProfPictur;

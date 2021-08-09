@@ -30,6 +30,7 @@ constructor(type: string,
         toSixYearsOld: any,
         fromSixToTvelve: any,
     }){
+        this.type = type
 this.size = size;
 this.facilities = facilities;
 this.view = view;

@@ -85,7 +85,7 @@
           />
         </div>
       </mat-form-field>
-    <button *ngIf="visible" mat-flat-button color="primary" [disabled]="form.valid" class="btn btn-dark col-md-12">Submit</button>
+    <button *ngIf="visible" mat-flat-button color="primary" class="btn btn-dark col-md-12">Submit</button>
     <button *ngIf="!visible" type="button" (click)="UpdateHotelInfo(form)" [disabled]="!form.valid" mat-flat-button color="primary" class="btn btn-dark col-md-12">Update</button>
 </form>
 
