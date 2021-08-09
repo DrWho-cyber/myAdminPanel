@@ -16,8 +16,8 @@ export class ReactiveFormComponent implements OnInit {
   
   createForm() {
     this.cvForm = this.formBuilder.group({
-      roomType:[null, [Validators.required, Validators.minLength(2)]],
-      facilities:[null, [Validators.required, Validators.email]],
+      roomType:[null, Validators.required],
+      facilities:[null, Validators.required],
       view:[null, Validators.required],
       sale:[null, Validators.required],
       reserveDates:[null, Validators.required],
