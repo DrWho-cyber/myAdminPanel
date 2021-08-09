@@ -23,4 +23,13 @@ export class RoomsComponent implements OnInit {
   });
   }
 
+
+  getInfoToupdate(key:string){
+
+  }
+
+  deleteHotel(key:string){
+
+  }
+
 }

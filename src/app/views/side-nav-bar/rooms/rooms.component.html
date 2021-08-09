@@ -1,60 +1,58 @@
 <div class="cardsArea">
-    <div class="demo-button-container">
-      <a routerLink="/main/templateDrivenform">
-        <button color="primary" mat-raised-button class="demo-button">
-          <mat-icon matSuffix>add</mat-icon>Add Hotel
-        </button>
-      </a>
-    </div>
+  <div class="demo-button-container">
+    <a routerLink="/main/reavtive">
+      <button color="primary" mat-raised-button class="demo-button">
+        <mat-icon matSuffix>add</mat-icon>Add room
+      </button>
+    </a>
+  </div>
   <mat-card *ngFor="let hotel of allHotels" class="example-card">
-      <img mat-card-image [src]="hotel.profilePicture" alt="Photo of a Shiba Inu">
-      <mat-card-header>
-        <mat-card-title>{{hotel.rooms.type}}</mat-card-title>
-        <mat-card-subtitle>
-            <p *ngFor="let facil of hotel.rooms.facilities">{{facil}}</p>
-          <!-- <mat-icon *ngIf="hotel.stars >= 1" matSuffix>star_rate</mat-icon>
+    <app-carousel [slides]="hotel.rooms.pictures"></app-carousel>
+    <mat-card-header>
+      <mat-card-title>{{hotel.rooms.type}}</mat-card-title>
+      <mat-card-subtitle>
+        <p *ngFor="let facil of hotel.rooms.facilities">{{facil}}</p>
+        <!-- <mat-icon *ngIf="hotel.stars >= 1" matSuffix>star_rate</mat-icon>
           <mat-icon *ngIf="hotel.stars >= 2" matSuffix>star_rate</mat-icon>
           <mat-icon *ngIf="hotel.stars >= 3" matSuffix>star_rate</mat-icon>
           <mat-icon *ngIf="hotel.stars >= 4" matSuffix>star_rate</mat-icon>
           <mat-icon *ngIf="hotel.stars == 5" matSuffix>star_rate</mat-icon> -->
-        </mat-card-subtitle>
-      </mat-card-header>
-      
-      <mat-card-content>
-          <div class="address">
-            <p>
-                Size: {{hotel.rooms.size}}
-              </p>
-              <p>
-                View: {{hotel.rooms.view}}
-              </p>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="address">
+        <p>
+          Size: {{hotel.rooms.size}}
+        </p>
+        <p>
+          View: {{hotel.rooms.view}}
+        </p>
         <p>
           Smoking: {{hotel.rooms.smoking}}
         </p>
         <p>
-         Parking:  {{hotel.rooms.parking}}
+          Parking: {{hotel.rooms.parking}}
         </p>
         <p>
-         animals:  {{hotel.rooms.animals}}
+          animals: {{hotel.rooms.animals}}
         </p>
-     </div>
-  
-     <div class="contactInfo">
-       Children:  <p>
-        to Six Years Old: {{hotel.rooms.children.toSixYearsOld | percent}},
-        from Six To Tvelve   {{hotel.rooms.children.fromSixToTvelve | percent}}
+      </div>
+
+      <div class="contactInfo">
+        Children: <p>
+          to Six Years Old: {{hotel.rooms.children.toSixYearsOld | percent}},
+          from Six To Tvelve {{hotel.rooms.children.fromSixToTvelve | percent}}
         </p>
-       Prise:  <p>{{hotel.rooms.prise | currency}}</p>
-     </div>
-     <!-- <button (click)="updateStatus(hotel)" [ngClass]="{ 'vip' : hotel.status == 1, 'user': hotel.status == 0}" mat-raised-button>{{hotel.status == 1 ? "VIP" : "User"}}</button>
-     <button (click)="getRooms(hotel.key)" mat-raised-button color='primary'>Rooms</button> -->
-      </mat-card-content>
-      <!-- <mat-card-actions>
-        <button (click)="getInfoToupdate(hotel.key)" mat-raised-button color='accent'>Update</button>
-        <button (click)="deleteHotel(hotel.key)" mat-raised-button color='warn'>Delete</button>
-      </mat-card-actions> -->
-      <app-carousel [slides]="hotel.rooms.pictures"></app-carousel>
-    </mat-card>
-  
-    
-  </div>
+        Prise: <p>{{hotel.rooms.prise | currency}}</p>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="getInfoToupdate(hotel.key)" mat-raised-button color='accent'>Update</button>
+      <button (click)="deleteHotel(hotel.key)" mat-raised-button color='warn'>Delete</button>
+    </mat-card-actions>
+
+  </mat-card>
+
+
+</div>

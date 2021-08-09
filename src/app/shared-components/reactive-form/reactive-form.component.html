@@ -1,34 +1,46 @@
 <form #form="ngForm" [formGroup]="cvForm" (ngSubmit)="onFormSubmit()">
     <div class="form-group">
-        <label for="fullName">Enter full name</label>
+        <label for="fullName">Type</label>
         <input formControlName="fullName" type="text" class="form-control">
     </div>
     <div class="form-group">
-        <label for="email">Enter email</label>
+        <label for="email">Facilities</label>
         <input formControlName="email" type="text" class="form-control">
     </div>
     <div class="form-group">
-        <label for="companyName">Enter companyName</label>
+        <label for="companyName">View</label>
         <input formControlName="companyName" type="text" class="form-control">
     </div>
     <div class="form-group">
-        <label for="position">Enter position</label>
+        <label for="position">Sale</label>
         <input formControlName="position" type="text" class="form-control">
     </div>
     <div class="form-group">
-        <label for="position">Enter experience</label>
+        <label for="position">ReserveDates</label>
         <input formControlName="experience" type="text" class="form-control">
     </div>
     <div formGroupName="education">
         <div class="form-group">
-            <label for="uni">Enter uni</label>
+            <label for="uni">Prise</label>
             <input formControlName="uni" type="text" class="form-control">
         </div>
         <div class="form-group">
-            <label for="school">Enter school</label>
+            <label for="school">Smoking</label>
+            <input formControlName="school" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="school">Animals</label>
             <input formControlName="school" type="text" class="form-control">
         </div>
     </div>
+    <div class="form-group">
+        <label for="school">Pictures</label>
+        <input formControlName="school" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="school">Children</label>
+        <input formControlName="school" type="text" class="form-control">
+    </div>
     <button [disabled]="!form.valid" class="btn btn-dark col-md-12">Submit</button>
-    <button type="button" (click)="setDefaultValues()" class="btn btn-dark col-md-12">Set Default Values</button>
+    <button type="button" (click)="setDefaultValues()" class="btn btn-dark col-md-12">Update</button>
 </form>

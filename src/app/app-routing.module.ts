@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutorisationComponent } from './shared-components/autorisation/autorisation.component';
+import { ReactiveFormComponent } from './shared-components/reactive-form/reactive-form.component';
 import { RegistrationComponent } from './shared-components/registration/registration.component';
 import { TemplateDrivenFormComponent } from './shared-components/template-driven-form/template-driven-form.component';
 import { MainPgComponent } from './views/main-pg/main-pg.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'templateDrivenform', component: TemplateDrivenFormComponent},
   { path:'update/:key',  component:UpdateHotelComponent},
   { path: 'Rooms/:key', component: RoomsComponent},
+  { path: 'reavtive', component: ReactiveFormComponent}
   ]
 },
   

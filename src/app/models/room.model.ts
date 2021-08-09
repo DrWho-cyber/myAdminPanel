@@ -4,7 +4,7 @@ export class Room {
         facilities!: string[];
         view!: string;
         sale!:boolean;
-        reserved!:boolean;
+        reserveDates!:number[];
         prise!:number;
         smoking!:boolean;
         parking!:boolean;
@@ -20,7 +20,7 @@ constructor(type: string,
     facilities: string[],
     view: string,
     sale:boolean,
-    reserved:boolean,
+    reserveDates:number[],
     prise:number,
     smoking:boolean,
     parking:boolean,
@@ -35,7 +35,7 @@ this.size = size;
 this.facilities = facilities;
 this.view = view;
 this.sale = sale;
-this.reserved = reserved;
+this.reserveDates = reserveDates;
 this.prise = prise;
 this.smoking = smoking;
 this.parking = parking;

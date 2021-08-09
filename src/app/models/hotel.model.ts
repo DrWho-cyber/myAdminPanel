@@ -4,7 +4,7 @@ export interface Room {
         facilities: string[];
         view: string;
         sale:boolean;
-        reserved:boolean;
+        reserveDates:number[];
         prise:number;
         smoking:boolean;
         parking:boolean;
