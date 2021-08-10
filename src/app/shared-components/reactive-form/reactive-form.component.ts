@@ -65,6 +65,8 @@ otherPictures:any[] = []
       prise:[null, Validators.required],
       smoking:[null, Validators.required],
      animals:[null, Validators.required],
+     parking:[null, Validators.required],
+     size:[null, Validators.required],
      pictures:[null],
       children:  new FormGroup({
         tosix: new FormControl(null, Validators.required),
