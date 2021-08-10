@@ -14,6 +14,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -32,7 +33,8 @@ const material: any = [
   MatCardModule,
   MatTableModule,
   MatCarouselModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatDividerModule
 ];
 
 @NgModule({
