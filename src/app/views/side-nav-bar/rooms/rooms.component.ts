@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Hotel } from 'src/app/models/hotel.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { CrudServicesService } from 'src/app/service/crud-services.service';
   styleUrls: ['./rooms.component.css']
 })
 export class RoomsComponent implements OnInit {
+  hotel:any;
   activeRoom: any[] = [];
   key!:string;
   constructor(private firebase: CrudServicesService,
@@ -22,6 +24,7 @@ export class RoomsComponent implements OnInit {
      this.key = route['key']
      try {
        this.firebase.getHotel(this.key).subscribe((response: any) => {
+         this.hotel = response;
         this.activeRoom = response.rooms
           console.log(this.activeRoom)
          });
@@ -36,8 +39,12 @@ export class RoomsComponent implements OnInit {
  this.route.navigate(['/'])
   }
 
-  deleteHotel(key:string){
-
+  deleteRoom(index:number){
+      this.activeRoom.splice(index, 1);
+      console.log(this.activeRoom)
+      this.hotel.rooms = this.activeRoom;
+      console.log(this.hotel)
+      this.firebase.updateHotel(this.hotel)  
   }
 
 }
