@@ -9,6 +9,8 @@ import { CrudServicesService } from 'src/app/service/crud-services.service';
   styleUrls: ['./rooms.component.css']
 })
 export class RoomsComponent implements OnInit {
+  clicked:boolean = false
+  contGeneraterBtnTitle:string = 'more'
   hotel:any;
   activeRoom: any[] = [];
   key!:string;
@@ -46,5 +48,15 @@ export class RoomsComponent implements OnInit {
       console.log(this.hotel)
       this.firebase.updateHotel(this.hotel)  
   }
-
+ 
+  onBtnClick(){
+    if (this.clicked == false){
+      this.clicked = true;
+      this.contGeneraterBtnTitle = 'less'
+    } else {
+      this.clicked = false;
+      this.contGeneraterBtnTitle = 'more'
+    };
+    console.log(this.clicked)
+  }
 }
