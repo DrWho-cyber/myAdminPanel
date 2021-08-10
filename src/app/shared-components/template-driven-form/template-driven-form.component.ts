@@ -48,7 +48,7 @@ export class TemplateDrivenFormComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((route: any) => {
-     if (route['key'] != undefined)
+     if (route['key'] != undefined){
       this.visible = false
       this.key = route['key']
       try {
@@ -63,7 +63,7 @@ export class TemplateDrivenFormComponent implements OnInit, OnDestroy {
            
           });
         })
-      } catch (arr) { }
+      } catch (arr) { }}
     })
 
     
@@ -84,12 +84,18 @@ export class TemplateDrivenFormComponent implements OnInit, OnDestroy {
     this.location.back();
   }
 
- roomObj:Room = new Room('twin',20,["conditioning", "roomservisec"],'balcony',true,[2,13,14],257,false,true,["picture"],false,{toSixYearsOld: 20, fromSixToTvelve: 40,});
+//  roomObj:Room = new Room('twin',20,["conditioning", "roomservisec"],'balcony',true,[2,13,14],257,false,true,["picture"],false,{toSixYearsOld: 20, fromSixToTvelve: 40,});
+//  roomObj2:Room = new Room('twin',20,["conditioning", "roomservisec"],'balcony',true,[2,13,14],257,false,true,["picture"],false,{toSixYearsOld: 20, fromSixToTvelve: 40,});
+ arr: any[] = [];
 
-  onFormSubmit(form: NgForm) {
+  
+onFormSubmit(form: NgForm) {
+  // this.arr.push(this.roomObj);
+  // this.arr.push(this.roomObj2);
     (form.value as Hotel).profilePicture = this.ProfPictur;
     (form.value as Hotel).otherPictures = this.otherPictures;
-    (form.value as Hotel).rooms = this.roomObj
+    (form.value as Hotel).rooms = this.arr;
+    
       var item = form.value as Hotel;
     console.log(JSON.stringify(item))
     this.firebase.createHotel(JSON.parse(JSON.stringify(item)))

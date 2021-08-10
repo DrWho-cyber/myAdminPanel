@@ -35,6 +35,7 @@ export class HotelsComponent implements OnInit {
       hotel.status = 1
     }
     this.firebase.updateHotel(hotel)
+    console.log(hotel)
   }
    
   getInfoToupdate(key:string){

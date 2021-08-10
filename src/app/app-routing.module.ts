@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'templateDrivenform', component: TemplateDrivenFormComponent},
   { path:'update/:key',  component:UpdateHotelComponent},
   { path: 'Rooms/:key', component: RoomsComponent},
-  { path: 'reavtive', component: ReactiveFormComponent}
+  { path: 'reavtive/:key', component: ReactiveFormComponent}
   ]
 },
   
