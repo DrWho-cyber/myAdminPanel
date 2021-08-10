@@ -1,18 +1,58 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Hotel } from 'src/app/models/hotel.model';
+import { Room } from 'src/app/models/room.model';
+import { CrudServicesService } from 'src/app/service/crud-services.service';
+
+
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent implements OnInit {
+key!:string;
+hotel:any;
+rooms:any[] = [];
+@ViewChild('form') form!: NgForm;
+roomTypes:string[] = ['Delux', 'Superior', 'Apollo', 'Tween', 'Single', 'King'];
+hotelFacilities:string[] = ['Free WiFi', 'Airport shuttle', 'Family rooms','Free parking', 'Non-smoking rooms', 'Room service', 'Air conditioning', 'Flatscreen TV', 'Coffee/tea maker', 'Private balcony', 'Housekeeping'];
+views:string[] = ['Sea view', 'Garden view', 'Landmark view']
+otherPictures:any[] = []
 
   cvForm: FormGroup = new FormGroup({});
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+   private activatedRoute: ActivatedRoute,
+   private firebase: CrudServicesService,
+  ) { }
+  
+  uploadMultFileEvt(imgFile: any) {
+    let self = this;
+    for(let i = 0; i < imgFile.target.files.length; i++){
+    const reader = new FileReader();
+    reader.readAsDataURL(imgFile.target.files[i]);
+    reader.onload = function () {
+      self.otherPictures.push(reader.result);
+    }
+  }
+  }
 
   ngOnInit(): void {
     this.createForm()
-    
+    this.activatedRoute.params.subscribe((route: any) => {
+      
+      //  this.visible = false
+       this.key = route['key']
+       try {
+         this.firebase.getHotel(this.key).subscribe((response: any) => {
+        this.hotel = response
+           this.rooms = response.rooms
+           });
+        
+       } catch (arr) { }
+     })
   }
   
   createForm() {
@@ -21,20 +61,28 @@ export class ReactiveFormComponent implements OnInit {
       facilities:[null, Validators.required],
       view:[null, Validators.required],
       sale:[null, Validators.required],
-      reserveDates:[null, Validators.required],
+      reserveDates:[{value: null, disabled: true}],
       prise:[null, Validators.required],
       smoking:[null, Validators.required],
      animals:[null, Validators.required],
-      pictures:[null, Validators.required],
-      children:[null, Validators.required],
+     pictures:[null],
+      children:  new FormGroup({
+        tosix: new FormControl(null, Validators.required),
+        totvelve: new FormControl(null, Validators.required)
     })
+  })
   }
 
-  onFormSubmit() {
+  onFormSubmit(hotel:Hotel) {
+  this.rooms.push(this.cvForm.value)
+  hotel.rooms = this.rooms;
+  hotel.key = this.key;
+  (this.form.value as Room).pictures = this.otherPictures;
+  console.log(this.hotel);
+  
+  this.firebase.updateHotel(hotel)
     // var name:any = this.cvForm.get('fullName')!.value;
     // var email = this.cvForm.get('email')!.value;
-    // console.log(name,email);
-    console.log(this.cvForm.value)
   }
   
  
@@ -42,11 +90,16 @@ export class ReactiveFormComponent implements OnInit {
     //მაგალითი: this.cvForm.get('roomType')?.setValue('giorgi');
   }
 
-  update() {
-   //ფაიერბეისში გასაგზავნად
-    
+  update(hotel:Hotel) {
+    this.rooms.push(this.cvForm);
+    hotel.rooms = this.rooms
+    this.firebase.updateHotel(hotel)
+    // if(this.rooms == undefined){this.rooms = this.cvForm.value}
+    // else{
+    // this.rooms.push(this.cvForm.value)}
+    // hotel.rooms = this.rooms;
+    // this.firebase.updateHotel(hotel)
   }
-
 
   
 }

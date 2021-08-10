@@ -39,9 +39,9 @@ export class Hotel{
     public status!:Status;
     public profilePicture!:string;
     public otherPictures!:any[];
-    public rooms!:Room
+    public rooms!:any[]
 
-    constructor(key:string, name:string, address:{},phone:number,email:string,stars:Stars,status:Status, profilePicture:string, otherPictures:any, rooms: Room){
+    constructor(key:string, name:string, address:{},phone:number,email:string,stars:Stars,status:Status, profilePicture:string, otherPictures:any, rooms: any[]){
      this.key = key;
      this.name = name;
      this.address = address;
