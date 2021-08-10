@@ -6,7 +6,7 @@
       </button>
     </a>
   </div>
-  <mat-card *ngFor="let room of activeRoom" class="example-card">
+  <mat-card *ngFor="let room of activeRoom; let i = index" class="example-card">
     <app-carousel [slides]="room.pictures"></app-carousel>
     <mat-card-header>
       <mat-card-title>{{room.roomType}}</mat-card-title>

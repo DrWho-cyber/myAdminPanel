@@ -30,7 +30,10 @@
 
         </mat-select>
     </mat-form-field>
-
+    <mat-form-field appearance="outline">
+        <mat-label for="size">Size</mat-label>
+        <input class="form-control" id="size" matInput type="number" formControlName="size">
+    </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label for="prise">Prise</mat-label>
         <input class="form-control" id="prise" matInput type="number" formControlName="prise">
@@ -38,6 +41,13 @@
     <mat-form-field appearance="outline">
         <mat-label for="smoking">Smoking</mat-label>
         <mat-select formControlName="smoking" class="form-control" id="smoking">
+            <mat-option value="yes">Yes</mat-option>
+            <mat-option value="no">No</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label for="parking">Parking</mat-label>
+        <mat-select formControlName="parking" class="form-control" id="parking">
             <mat-option value="yes">Yes</mat-option>
             <mat-option value="no">No</mat-option>
         </mat-select>
