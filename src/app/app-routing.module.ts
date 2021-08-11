@@ -5,6 +5,7 @@ import { ReactiveFormComponent } from './shared-components/reactive-form/reactiv
 import { RegistrationComponent } from './shared-components/registration/registration.component';
 import { TemplateDrivenFormComponent } from './shared-components/template-driven-form/template-driven-form.component';
 import { MainPgComponent } from './views/main-pg/main-pg.component';
+import { ReservationComponent } from './views/reservation/reservation.component';
 import { DashboardComponent } from './views/side-nav-bar/dashboard/dashboard.component';
 import { HotelsComponent } from './views/side-nav-bar/hotels/hotels.component';
 import { RoomsComponent } from './views/side-nav-bar/rooms/rooms.component';
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'templateDrivenform', component: TemplateDrivenFormComponent},
   { path:'update/:key',  component:UpdateHotelComponent},
   { path: 'Rooms/:key', component: RoomsComponent},
-  { path: 'reavtive/:key', component: ReactiveFormComponent}
+  { path: 'reavtive/:key', component: ReactiveFormComponent},
+  {path: 'reserve/:key/:index', component: ReservationComponent}
   ]
 },
   

@@ -41,11 +41,14 @@ export class RoomsComponent implements OnInit {
  this.route.navigate(['/'])
   }
 
+
+  goToreservation(key:string, index:number){
+    this.route.navigate([`./main/reserve/${key}/${index}`])
+     }
+
   deleteRoom(index:number){
       this.activeRoom.splice(index, 1);
-      console.log(this.activeRoom)
       this.hotel.rooms = this.activeRoom;
-      console.log(this.hotel)
       this.firebase.updateHotel(this.hotel)  
   }
  

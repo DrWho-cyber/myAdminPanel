@@ -74,12 +74,13 @@ otherPictures:any[] = []
     })
   })
   }
-
+  arr:any[] = []
   onFormSubmit(hotel:Hotel) {
   this.rooms.push(this.cvForm.value)
   hotel.rooms = this.rooms;
   hotel.key = this.key;
   (this.form.value as Room).pictures = this.otherPictures;
+  (this.form.value as Room).reserveDates = this.arr;
   console.log(this.hotel);
   
   this.firebase.updateHotel(hotel)
