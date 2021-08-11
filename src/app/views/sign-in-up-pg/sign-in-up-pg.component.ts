@@ -1,5 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { User } from 'src/app/models/user.model';
+import { Location } from '@angular/common';
+import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-sign-in-up-pg',
@@ -7,12 +10,29 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./sign-in-up-pg.component.css']
 })
 export class SignInUpPgComponent implements OnInit {
-
-  
-  constructor() { }
+  visibility:boolean = true
+ 
+  constructor(private route:Router, private location: Location) { }
 
   ngOnInit(): void {
+    
+  }
+
+  goToRegistrationOrSignInComp(link: string){
+    this.route.navigate([`/${link}`]);
+  }
+
+  goBack(): void {
+    this.visibility = true;
+    this.location.back();
+  }
+
+  componentAdded(){
+    this.visibility = false;
   }
   
-  
+
+  componentRemoved(){
+    this.visibility = true;
+  }
 }

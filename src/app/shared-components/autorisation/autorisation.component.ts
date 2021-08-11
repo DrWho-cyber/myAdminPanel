@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-autorisation',
@@ -10,7 +12,8 @@ export class AutorisationComponent implements OnInit {
   userEmail!: string;
   userPassword!: string;
 
-  constructor( private fireAuth:AngularFireAuth) { }
+  constructor( private fireAuth:AngularFireAuth,
+    private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -19,9 +22,11 @@ export class AutorisationComponent implements OnInit {
 
     this.fireAuth.signInWithEmailAndPassword(this.userEmail,this.userPassword)
     .then((result:any) =>{
-      alert("you are logged in")
+      this.route.navigate(['/main/Dashboard'])
     } ).catch((error:any) =>{
       alert(error.message)
+      this.userEmail =  '';
+  this.userPassword = '';
     })
 
   }

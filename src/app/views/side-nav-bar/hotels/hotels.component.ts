@@ -35,10 +35,15 @@ export class HotelsComponent implements OnInit {
       hotel.status = 1
     }
     this.firebase.updateHotel(hotel)
+    console.log(hotel)
   }
    
   getInfoToupdate(key:string){
-    this.route.navigate([`./update/${key}`]);
+    this.route.navigate([`./main/update/${key}`]);
+  }
+  
+  getRooms(key:string){
+    this.route.navigate([`./main/Rooms/${key}`]);
   }
 
   deleteHotel(key:string){
@@ -46,4 +51,7 @@ export class HotelsComponent implements OnInit {
 
     })
   }
+
+
+
 }

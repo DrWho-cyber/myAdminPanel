@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class SideNavBarComponent implements OnInit, DoCheck {
   menuIcon: string = 'switch_right';
   menuIconChange: boolean = false;
   
-  constructor() { }
+  constructor(public route:Router) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +23,7 @@ export class SideNavBarComponent implements OnInit, DoCheck {
 
   mode = new FormControl('side');
 
-  links: { name: string, icon: string }[] = [{ name: 'Dashboard', icon: 'dashboard' }, { name: 'Hotels', icon: 'folder_open' }, { name: 'Rooms', icon: 'room' }, { name: 'Users', icon: 'verified_user' }, { name: 'Sales', icon: 'star' }];
+  links: { name: string, icon: string }[] = [{ name: 'Dashboard', icon: 'dashboard' }, { name: 'Hotels', icon: 'folder_open' }, { name: 'Users', icon: 'verified_user' }, { name: 'Sales', icon: 'star' }];
 
   iconChange() {
     this.menuIconChange = !this.menuIconChange;
@@ -30,6 +31,10 @@ export class SideNavBarComponent implements OnInit, DoCheck {
       this.menuIcon = 'switch_left'
     } else { 
       this.menuIcon = 'switch_right'}
+  }
+
+  navigateto(link:string){
+    this.route.navigate([`./main/${link}`]);
   }
 }
 

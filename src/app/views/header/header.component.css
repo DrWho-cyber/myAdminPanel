@@ -3,10 +3,16 @@
     color: white;
     justify-content: space-between;
     
+    
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
 }
 
 .redSpan {
     color: rgb(219, 20, 48);
+    
 }
 
 .mat-nav-list {

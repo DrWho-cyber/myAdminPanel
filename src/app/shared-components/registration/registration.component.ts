@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
+import { Location } from '@angular/common';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'src/app/models/user.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
-import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-registration',
@@ -19,7 +20,15 @@ export class RegistrationComponent implements OnInit {
   userAge!: number;
   userGender!: any;
 
+  
+  constructor(private firebase: CrudServicesService,
+    private fireAuth: AngularFireAuth,
+    private location: Location
+    ) { }
 
+    ngOnInit(): void {
+    }
+  
   @ViewChild('fileInput') fileInput!: ElementRef;
   ProfPictur: any;
   user: User = new User("", "", "", "", 1, "", 0, 0, "", 0)
@@ -29,17 +38,8 @@ export class RegistrationComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(imgFile.target.files[0]);
     reader.onload = function () {
-      console.log(imgFile.target.files[0], reader.result)
       self.ProfPictur = reader.result;
     }
-  }
-
-
-
-  constructor(private firebase: CrudServicesService,
-    private fireAuth: AngularFireAuth) { }
-
-  ngOnInit(): void {
   }
 
   onSubmit() {
@@ -58,7 +58,10 @@ export class RegistrationComponent implements OnInit {
 
     this.fireAuth.createUserWithEmailAndPassword(this.userEmail, this.userPassword)
       .then((result: any) => {
-        console.log("success")
+        alert("success")
+        this.location.back()
+      }).catch((error:any) =>{
+        alert(error.message)
       })
 
     console.log(user)

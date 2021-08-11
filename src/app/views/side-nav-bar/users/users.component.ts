@@ -5,7 +5,6 @@ import { User } from 'src/app/models/user.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
 
 
-
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -43,9 +42,6 @@ export class UsersComponent implements OnInit {
 
   }
 
-
-
-  //სტატუსის დააფდეითება
   updateStatus(user:User){
     if(user.status == 1){
       user.status = 0
@@ -57,7 +53,6 @@ export class UsersComponent implements OnInit {
 
   removeUser(event: any) {
     let key = event.key
-    //აქ იუზერის წაშლის ფუნქცია
     this.firebase.deleteUser(key).then((response: any) => {
     })
 
