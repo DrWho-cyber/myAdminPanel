@@ -82,7 +82,7 @@ export class ReactiveFormComponent implements OnInit {
       })
     })
   }
-  arr: any[] = []
+  arr: any[] = [];
   onFormSubmit(hotel: Hotel) {
     this.rooms.push(this.cvForm.value)
     hotel.rooms = this.rooms;
@@ -110,7 +110,6 @@ export class ReactiveFormComponent implements OnInit {
     // hotel.rooms = this.rooms;
     // this.firebase.updateHotel(hotel)
   }
-
 
 }
 
