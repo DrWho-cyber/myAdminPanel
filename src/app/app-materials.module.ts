@@ -15,6 +15,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 
@@ -34,7 +35,9 @@ const material: any = [
   MatTableModule,
   MatCarouselModule,
   MatCheckboxModule,
-  MatDividerModule
+  MatDividerModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 ];
 
 @NgModule({
