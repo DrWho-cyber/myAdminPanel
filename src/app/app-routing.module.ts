@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AutorisationComponent } from './shared-components/autorisation/autorisation.component';
 import { ReactiveFormComponent } from './shared-components/reactive-form/reactive-form.component';
 import { RegistrationComponent } from './shared-components/registration/registration.component';
+import { SalesFormComponent } from './shared-components/sales-form/sales-form.component';
 import { TemplateDrivenFormComponent } from './shared-components/template-driven-form/template-driven-form.component';
 import { MainPgComponent } from './views/main-pg/main-pg.component';
 import { ReservationComponent } from './views/reservation/reservation.component';
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path:'update/:key',  component:UpdateHotelComponent},
   { path: 'Rooms/:key', component: RoomsComponent},
   { path: 'reavtive/:key/:index', component: ReactiveFormComponent},
-  {path: 'reserve/:key/:index', component: ReservationComponent}
+  {path: 'reserve/:key/:index', component: ReservationComponent},
+  {path: 'salesForm' , component:SalesFormComponent}
   ]
 },
   

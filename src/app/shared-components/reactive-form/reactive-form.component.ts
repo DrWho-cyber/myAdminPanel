@@ -17,6 +17,7 @@ export class ReactiveFormComponent implements OnInit {
   index: any;
   hotel: any;
   rooms: any[] = [];
+  visible: boolean = true;
   @ViewChild('form') form!: NgForm;
   roomTypes: string[] = ['Delux', 'Superior', 'Apollo', 'Tween', 'Single', 'King'];
   hotelFacilities: string[] = ['Free WiFi', 'Airport shuttle', 'Family rooms', 'Free parking', 'Non-smoking rooms', 'Room service', 'Air conditioning', 'Flatscreen TV', 'Coffee/tea maker', 'Private balcony', 'Housekeeping'];
@@ -43,10 +44,11 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit(): void {
     this.createForm()
     this.activatedRoute.params.subscribe((route: any) => {
-
-      //  this.visible = false
       this.key = route['key']
       this.index = route['index']
+      if(this.index >= 0){
+        this.visible = false
+      }
       try {
         this.firebase.getHotel(this.key).subscribe((response: any) => {
           this.hotel = response
@@ -109,6 +111,9 @@ export class ReactiveFormComponent implements OnInit {
     // this.rooms.push(this.cvForm.value)}
     // hotel.rooms = this.rooms;
     // this.firebase.updateHotel(hotel)
+  }
+  ngOnDestroy(): void {
+    this.visible = true;
   }
 
 }

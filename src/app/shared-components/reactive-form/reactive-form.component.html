@@ -60,38 +60,32 @@
         </mat-select>
     </mat-form-field>
 
- 
-        <mat-form-field>
-            <div>
-              <mat-toolbar>
-                <input placeholder="Other pictures" matInput readonly name="name"/>
+
+    <mat-form-field>
+        <div>
+            <mat-toolbar>
+                <input placeholder="Other pictures" matInput readonly name="name" />
                 <button mat-flat-button color="primary">
-                  Browse File
+                    Browse File
                 </button>
-              </mat-toolbar>
-              <input 
-              multiple
-              type="file"
-              #filesInput 
-              id="uploadFile" 
-              (change)=" uploadMultFileEvt($event) " 
-              name="uploadFile" 
-              />
-            </div>
-          </mat-form-field>
- 
+            </mat-toolbar>
+            <input multiple type="file" #filesInput id="uploadFile" (change)=" uploadMultFileEvt($event) "
+                name="uploadFile" />
+        </div>
+    </mat-form-field>
+
     <div formGroupName="children">
-        <mat-form-field appearance="outline" >
+        <mat-form-field appearance="outline">
             <mat-label for="tosix">to Six years old</mat-label>
             <input class="form-control" id="tosix" matInput type="number" formControlName="tosix">
         </mat-form-field>
-        <mat-form-field appearance="outline" >
+        <mat-form-field appearance="outline">
             <mat-label for="totvelve">From six to tvelve</mat-label>
             <input class="form-control" id="totvelve" matInput type="number" formControlName="totvelve">
         </mat-form-field>
     </div>
-    <button mat-raised-button color="primary" [disabled]="!form.valid">Submit</button>
-    <button mat-raised-button color="primary" type="button" (click)="update(hotel)">Update</button>
+    <button *ngIf="visible" mat-raised-button color="primary" [disabled]="!form.valid">Submit</button>
+    <button *ngIf="!visible" mat-raised-button color="primary" type="button" (click)="update(hotel)">Update</button>
 </form>
 
 

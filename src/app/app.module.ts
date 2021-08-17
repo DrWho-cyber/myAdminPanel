@@ -32,7 +32,8 @@ import { UsersComponent } from './views/side-nav-bar/users/users.component';
 import { SignInUpPgComponent } from './views/sign-in-up-pg/sign-in-up-pg.component';
 import { UpdateHotelComponent } from './views/update-hotel/update-hotel.component';
 import { CarouselComponent } from './shared-components/carousel/carousel.component';
-import { ReservationComponent } from './views/reservation/reservation.component'
+import { ReservationComponent } from './views/reservation/reservation.component';
+import { SalesFormComponent } from './shared-components/sales-form/sales-form.component'
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ReservationComponent } from './views/reservation/reservation.component'
     SignInUpPgComponent,
     UpdateHotelComponent,
     CarouselComponent,
-    ReservationComponent
+    ReservationComponent,
+    SalesFormComponent
   ],
   imports: [
     BrowserModule,

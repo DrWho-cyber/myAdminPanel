@@ -19,7 +19,7 @@ export class ReservationComponent implements OnInit {
   unuvalableDate = (d: Date | null): boolean => {
     const day = (d || new Date())
     // Prevent Saturday and Sunday from being selected.
-    return day < new Date;
+    return day >= new Date() 
   
   }
      
