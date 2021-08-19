@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sales-form',
@@ -25,7 +26,8 @@ export class SalesFormComponent implements OnInit {
   @ViewChild('endDate') endDate!: any;
   cvForm: FormGroup = new FormGroup({});
   constructor(private formBuilder: FormBuilder,
-    private firebase: CrudServicesService) { }
+    private firebase: CrudServicesService,
+    private location: Location) { }
 
   ngOnInit(): void {
     this.createForm()
@@ -55,9 +57,13 @@ export class SalesFormComponent implements OnInit {
       }
     }
   }
+  goBack(): void {
+    this.location.back();
+  }
   onFormSubmit(form:any){
     (this.form.value as any).picture = this.otherPictures;
     this.firebase.createSales(form.value)
+    this.goBack()
   }
 
 }

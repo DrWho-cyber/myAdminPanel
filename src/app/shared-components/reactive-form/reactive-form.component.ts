@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angula
 import { ActivatedRoute } from '@angular/router';
 import { Hotel } from 'src/app/models/hotel.model';
 import { Room } from 'src/app/models/room.model';
+import { Location } from '@angular/common';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
 
 
@@ -28,6 +29,7 @@ export class ReactiveFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private firebase: CrudServicesService,
+    private location: Location,
   ) { }
 
   uploadMultFileEvt(imgFile: any) {
@@ -65,6 +67,9 @@ export class ReactiveFormComponent implements OnInit {
     }, 1000);
   }
 
+  goBack(): void {
+    this.location.back();
+  }
   createForm() {
     this.cvForm = this.formBuilder.group({
       roomType: [null, Validators.required],
@@ -92,8 +97,8 @@ export class ReactiveFormComponent implements OnInit {
     (this.form.value as Room).pictures = this.otherPictures;
     (this.form.value as Room).reserveDates = this.arr;
     console.log(this.hotel);
-
     this.firebase.updateHotel(hotel)
+    this.goBack()
     // var name:any = this.cvForm.get('fullName')!.value;
     // var email = this.cvForm.get('email')!.value;
   }
@@ -106,6 +111,7 @@ export class ReactiveFormComponent implements OnInit {
   update(hotel: Hotel) {
     hotel.rooms[this.index] = this.cvForm.value
     this.firebase.updateHotel(hotel)
+    this.goBack()
     // if(this.rooms == undefined){this.rooms = this.cvForm.value}
     // else{
     // this.rooms.push(this.cvForm.value)}

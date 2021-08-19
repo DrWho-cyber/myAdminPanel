@@ -102,6 +102,7 @@ onFormSubmit(form: NgForm) {
       .then((response: any) => {
        alert(response);
       })
+      this.goBack()
     
   }
 
