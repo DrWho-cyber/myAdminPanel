@@ -100,7 +100,6 @@ onFormSubmit(form: NgForm) {
     console.log(JSON.stringify(item))
     this.firebase.createHotel(JSON.parse(JSON.stringify(item)))
       .then((response: any) => {
-       alert(response);
       })
       this.goBack()
     
