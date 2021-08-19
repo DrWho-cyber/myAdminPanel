@@ -3,7 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Hotel } from 'src/app/models/hotel.model';
 import { Room } from 'src/app/models/room.model';
 import { CrudServicesService } from 'src/app/service/crud-services.service';
-import {FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-reservation',
@@ -19,64 +21,82 @@ export class ReservationComponent implements OnInit {
   unuvalableDate = (d: Date | null): boolean => {
     const day = (d || new Date())
     // Prevent Saturday and Sunday from being selected.
-    return day >= new Date() 
-  
+    return day >= new Date()
+
   }
-     
+
 
 
   minDate = new Date()
-reserveDates:any[] = []
-key!:string;
-hotel!:Hotel;
-rooms!:any[];
-activeRoom!:any;
-index!:number;
-dateObj!:{startDate:any,
-  endDate:any
-};
+  reserveDates: any[] = []
+  key!: string;
+  hotel!: Hotel;
+  rooms!: any[];
+  activeRoom!: any;
+  index!: number;
+  dateObj!: {
+    start: any,
+    end: any
+  };
+  check: boolean = false;
+  dateArray: any[] = []
   constructor(private firebase: CrudServicesService,
     private route: Router,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((route: any) => {
-       this.key = route['key']
-       this.index = route['index']
-       
-       try {
-         this.firebase.getHotel(this.key).subscribe((response: any) => {
-           this.hotel = response;
+      this.key = route['key']
+      this.index = route['index']
+      try {
+        this.firebase.getHotel(this.key).subscribe((response: any) => {
+          this.hotel = response;
           this.rooms = response.rooms
           this.activeRoom = this.rooms[route['index']]
           this.reserveDates = []
-this.rooms[route['index']].reserveDates.forEach((element:any) => {
-  this.dateObj = {
-    startDate: new Date(element.start.seconds*1000),
-    endDate: new Date(element.end.seconds*1000)
+        });
+      } catch (arr) { }
+
+    })
+    setTimeout(() => {
+      this.rooms[this.index].reserveDates.forEach((element: any) => {
+        this.dateObj = {
+          start: new Date(element.start.seconds * 1000),
+          end: new Date(element.end.seconds * 1000)
+        }
+        this.reserveDates.push(this.dateObj);
+        var start = element.start.seconds
+        var end = element.end.seconds
+        var oneDay = 60 * 60 * 24
+        var dateRange = (end - start) / oneDay
+        for (var i = 0; i <= dateRange; i++) {
+          var date = new Date(start * 1000)
+          date.setDate(date.getDate() + i);
+          this.dateArray.push(date)
+        }
+      });
+    }, 1000);
+    
   }
-  this.reserveDates.push(this.dateObj);
-  
-}); 
-   });
-       } catch (arr) { }
-     })
 
-  }
-
-  reserve(hotel:Hotel){
-   this.reserveDates.forEach(element => {
-     if(this.range.value.start.toString() == element.startDate.toString()){
-       alert('It is already resered ad that date, please, choose another availeble dates')
-       return
-     }
-   });
-
-hotel.key = this.key;
-(this.rooms[this.index] as Room).reserveDates.push(this.range.value);
-(this.hotel as Hotel).rooms = this.rooms;
-console.log((this.hotel as Hotel).rooms)
-this.firebase.updateHotel(this.hotel)
+  reserve(hotel: Hotel) {
+    this.check = false
+    this.dateArray.forEach(element => {
+      if (this.range.value.start.toString() == element.toString() || this.range.value.end.toString() == element.toString()) {
+        alert("some of these days are already reserved")
+        this.check = true
+      }
+    })
+    if (this.check == false) {
+      hotel.key = this.key;
+      this.reserveDates.push(this.range.value);
+      this.rooms[this.index].reserveDates = this.reserveDates;
+      (this.hotel as Hotel).rooms = this.rooms;
+      console.log((this.hotel as Hotel).rooms)
+      this.firebase.updateHotel(this.hotel)
+      this.route.navigate([`./main/Hotels`])
+    }
+    
   }
 
 
