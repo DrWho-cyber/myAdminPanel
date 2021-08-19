@@ -23,9 +23,9 @@ export class DashboardComponent implements OnInit {
     this.firebase.readAllHotel().subscribe((response: any) => {
       this.dataSource = []
       response.forEach((element: any) => {
+        var roomIndex = -1
         var hotelData = element.payload.doc.data()
         hotelData.rooms.forEach((room:any) => {
-          var roomIndex = -1
           roomIndex += 1
           room.reserveDates.forEach((dates:any) => {
             var start = new Date(dates.start.seconds * 1000).toDateString()
