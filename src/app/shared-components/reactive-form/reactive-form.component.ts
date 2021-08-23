@@ -60,7 +60,6 @@ export class ReactiveFormComponent implements OnInit {
       } catch (arr) { }
     })
     setTimeout(() => {
-      console.log(this.rooms[this.index])
       if (this.index >= 0) {
         this.cvForm.patchValue(this.rooms[this.index])
       }
@@ -92,15 +91,12 @@ export class ReactiveFormComponent implements OnInit {
   arr: any[] = [];
   onFormSubmit(hotel: Hotel) {
     this.rooms.push(this.cvForm.value)
-    hotel.rooms = this.rooms;
-    hotel.key = this.key;
+    this.hotel.rooms = this.rooms;
+    this.hotel.key = this.key;
     (this.form.value as Room).pictures = this.otherPictures;
     (this.form.value as Room).reserveDates = this.arr;
-    console.log(this.hotel);
-    this.firebase.updateHotel(hotel)
+    this.firebase.updateHotel(this.hotel)
     this.goBack()
-    // var name:any = this.cvForm.get('fullName')!.value;
-    // var email = this.cvForm.get('email')!.value;
   }
 
 
@@ -112,11 +108,6 @@ export class ReactiveFormComponent implements OnInit {
     hotel.rooms[this.index] = this.cvForm.value
     this.firebase.updateHotel(hotel)
     this.goBack()
-    // if(this.rooms == undefined){this.rooms = this.cvForm.value}
-    // else{
-    // this.rooms.push(this.cvForm.value)}
-    // hotel.rooms = this.rooms;
-    // this.firebase.updateHotel(hotel)
   }
   ngOnDestroy(): void {
     this.visible = true;

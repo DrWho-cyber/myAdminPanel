@@ -28,12 +28,10 @@ export class RoomsComponent implements OnInit {
         this.firebase.getHotel(this.key).subscribe((response: any) => {
           this.hotel = response;
           this.activeRoom = response.rooms
-          console.log(this.activeRoom)
         });
 
       } catch (arr) { }
     })
-    console.log(this.key)
   }
 
 
@@ -60,6 +58,5 @@ export class RoomsComponent implements OnInit {
       this.clicked = false;
       this.contGeneraterBtnTitle = 'more'
     };
-    console.log(this.clicked)
   }
 }

@@ -3,6 +3,7 @@
     text-align: center;
     margin-left: 1rem;
     font-family: 'Gowun Batang', serif;
+    margin-bottom: 10px;
 }
 
 .mat-card-subtitle .mat-icon{
@@ -32,7 +33,7 @@
 .cardsArea {
     display: flex;
     justify-content: center;
-   
+   flex-wrap: wrap;
 }
 
 .mat-raised-button {

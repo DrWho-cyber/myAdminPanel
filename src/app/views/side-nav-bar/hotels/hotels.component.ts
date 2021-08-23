@@ -17,13 +17,10 @@ export class HotelsComponent implements OnInit {
     this.firebase.readAllHotel().subscribe((response: any) => {
       this.allHotels = [];
       response.forEach((element: any) => {
-        console.log(element)
         var hotel = element.payload.doc.data();
         hotel.key = element.payload.doc.id;
         this.allHotels.push(hotel);
       });
-      
-      console.log(this.allHotels)
     });
     
   }
@@ -36,7 +33,6 @@ export class HotelsComponent implements OnInit {
       hotel.status = 1
     }
     this.firebase.updateHotel(hotel)
-    console.log(hotel)
   }
    
   getInfoToupdate(key:string){

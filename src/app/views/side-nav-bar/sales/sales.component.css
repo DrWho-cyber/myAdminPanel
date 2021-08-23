@@ -32,5 +32,6 @@
     flex-wrap: wrap;
 }
 .mat-accordion{
-    margin: 0px 10px;
+    margin: 0px 10px 10px 10px;
+    max-width: 374px;
 }

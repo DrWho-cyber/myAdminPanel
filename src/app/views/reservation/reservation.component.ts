@@ -92,7 +92,6 @@ export class ReservationComponent implements OnInit {
       this.reserveDates.push(this.range.value);
       this.rooms[this.index].reserveDates = this.reserveDates;
       (this.hotel as Hotel).rooms = this.rooms;
-      console.log((this.hotel as Hotel).rooms)
       this.firebase.updateHotel(this.hotel)
       this.route.navigate([`./main/Hotels`])
     }

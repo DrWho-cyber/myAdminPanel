@@ -36,8 +36,6 @@ export class UsersComponent implements OnInit {
         this.dataSource.push(user);
 
       });
-
-      console.log(this.dataSource)
     });
 
   }
@@ -62,7 +60,6 @@ export class UsersComponent implements OnInit {
           user?.delete()
         })
       })
-    console.log(key)
   }
 }
 
