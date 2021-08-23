@@ -10,8 +10,7 @@ export class CarouselComponent implements OnInit{
  @Input() slides:any[] = []
   constructor() { }
 
-  ngOnInit(): void {console.log("slides " + this.slides)
-  }
+  ngOnInit(): void {}
   
   intervalNumb:number = 5000;
   proportionNumb:number = 100;

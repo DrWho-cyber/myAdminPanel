@@ -64,7 +64,6 @@ export class RegistrationComponent implements OnInit {
         alert(error.message)
       })
 
-    console.log(user)
     this.firebase.createUser(JSON.parse(JSON.stringify(user)))
       .then((response: any) => {
 

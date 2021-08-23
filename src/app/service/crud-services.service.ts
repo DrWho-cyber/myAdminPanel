@@ -77,4 +77,23 @@ export class CrudServicesService {
     .doc(key)
     .delete();
   }
+
+  createSales(sale:any):any {
+    return this.firestore
+    .collection(environment.firebaseCollections.sales)
+    .add(sale);
+  }
+
+  readAllSales():any {
+    return this.firestore
+    .collection(environment.firebaseCollections.sales)
+    .snapshotChanges();
+  }
+
+  deleteSale(key:string):any {
+    return this.firestore
+    .collection(environment.firebaseCollections.sales)
+    .doc(key)
+    .delete();
+  }
 }

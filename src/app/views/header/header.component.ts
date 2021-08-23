@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   icons:string[] = ['mail', 'notifications', 'logout']
-  constructor(private route: Router) { }
+  constructor(private route: Router,
+    private fireAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
   }
@@ -16,6 +18,8 @@ export class HeaderComponent implements OnInit {
 
   onbtnClick(icon:string){
     if(icon == "logout"){
+      this.fireAuth.signOut
+      localStorage.clear
       this.route.navigate(['/signInUp'])
     }
   }

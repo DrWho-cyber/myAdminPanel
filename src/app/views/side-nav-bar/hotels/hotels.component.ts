@@ -21,8 +21,6 @@ export class HotelsComponent implements OnInit {
         hotel.key = element.payload.doc.id;
         this.allHotels.push(hotel);
       });
-      
-      console.log(this.allHotels)
     });
     
   }
@@ -35,7 +33,6 @@ export class HotelsComponent implements OnInit {
       hotel.status = 1
     }
     this.firebase.updateHotel(hotel)
-    console.log(hotel)
   }
    
   getInfoToupdate(key:string){

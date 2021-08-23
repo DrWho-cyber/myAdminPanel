@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   firebaseCollections: {
     user: "user-collection",
-    hotels: "hotels-collection"
+    hotels: "hotels-collection",
+    sales: "sales-collection"
   },
   firebaseConfig: {
     apiKey: "AIzaSyCBQoMxkXXm8C3ygFt6wbIgFKDYyz3Jc18",
